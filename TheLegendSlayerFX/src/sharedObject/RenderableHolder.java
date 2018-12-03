@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
+import logic.Bullet; 
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import logic.Field;
 import logic.Mine;
+import logic.Player;
 import logic.Tank;
 
 public class RenderableHolder {
@@ -48,7 +49,7 @@ public class RenderableHolder {
 		entities.add(entity);
 		Collections.sort(entities, comparator);
 		for(IRenderable x: entities){
-			if(x instanceof Tank) System.out.println("tank");
+			if(x instanceof Player) System.out.println("player");
 			if(x instanceof Mine) System.out.println("mine");
 			if(x instanceof Field) System.out.println("field");
 			
@@ -60,6 +61,11 @@ public class RenderableHolder {
 			if (entities.get(i).isDestroyed())
 				entities.remove(i);
 		}
+		for (int i = 0; i <  entities.size(); i++) {
+            IRenderable entity = entities.get(i);
+            if(entity instanceof Player) ((Player)entity).update();
+            if(entity instanceof Bullet) ((Bullet)entity).update();
+        }
 	}
 
 	public List<IRenderable> getEntities() {

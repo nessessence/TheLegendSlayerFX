@@ -12,8 +12,8 @@ public class Mine extends CollidableEntity{
 		this.radius = 20;
 	}
 	
-	public void onCollision(Tank tank){
-		tank.hitByMine();
+	public void onCollision(Player player){
+		player.hitByMine();
 		RenderableHolder.explosionSound.play();
 		this.destroyed = true;
 	}

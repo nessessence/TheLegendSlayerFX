@@ -8,7 +8,7 @@ import sharedObject.RenderableHolder;
 public class GameLogic {
 	private List<Entity> gameObjectContainer;
 	
-	private Tank tank;
+	private Player player;
 	private Mine mine;
 	
 	public GameLogic(){
@@ -16,9 +16,9 @@ public class GameLogic {
 	
 		Field field = new Field();
 		RenderableHolder.getInstance().add(field);
-		tank = new Tank(320,240);
+		player = new Player(320,240);
 		mine = new Mine(100,100);
-		addNewObject(tank);
+		addNewObject(player);
 		addNewObject(mine);
 	}
 	
@@ -28,9 +28,9 @@ public class GameLogic {
 	}
 	
 	public void logicUpdate(){
-		tank.update();
-		if(!mine.isDestroyed() && tank.collideWith(mine)){
-			mine.onCollision(tank);
+		player.update();
+		if(!mine.isDestroyed() && player.collideWith(mine)){
+			mine.onCollision(player);
 		}
 	}
 }
