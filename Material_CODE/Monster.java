@@ -1,4 +1,4 @@
-package GameLogic;
+package drawing;
 
 public class Monster {
 

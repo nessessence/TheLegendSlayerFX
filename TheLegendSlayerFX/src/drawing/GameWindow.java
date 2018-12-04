@@ -2,7 +2,6 @@ package drawing;
 
 import java.util.Random;
 
-import GameLogic.Monster;
 import input.InputUtility;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -67,7 +66,6 @@ public class GameWindow extends Canvas{
 		AnimationTimer animation = new AnimationTimer() {
 			public void handle(long now) {
 				gameScreen.paintComponent();
-				logic.logicUpdate();
 				RenderableHolder.getInstance().update();
 				InputUtility.updateInputState();
 			}
