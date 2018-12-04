@@ -1,4 +1,5 @@
-import drawing.GameScreen;
+package drawing;
+
 import input.InputUtility;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -8,24 +9,21 @@ import javafx.stage.Stage;
 import logic.GameLogic;
 import sharedObject.RenderableHolder;
 
-public class Main extends Application {
-	public static void main(String[] args) {
-		Application.launch(args);
-	}
+public class GameWindow extends Application {
 
 	@Override
-	public void start(Stage stage) {
+	public void start(Stage primaryStage) throws Exception {
 		StackPane root = new StackPane();
 		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.setTitle("Tank game");
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("The Legend Slayer");
 
 		GameLogic logic = new GameLogic();
 		GameScreen gameScreen = new GameScreen(640, 480);
 		root.getChildren().add(gameScreen);
 		gameScreen.requestFocus();
 		
-		stage.show();
+		primaryStage.show();
 		
 		AnimationTimer animation = new AnimationTimer() {
 			public void handle(long now) {
@@ -35,6 +33,10 @@ public class Main extends Application {
 				InputUtility.updateInputState();
 			}
 		};
-		animation.start();
+		animation.start();		
+	}
+	
+	public static void main(String[] args) {
+		Application.launch(args);
 	}
 }

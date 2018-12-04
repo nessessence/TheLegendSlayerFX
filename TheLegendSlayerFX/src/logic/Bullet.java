@@ -23,14 +23,14 @@ public class Bullet extends CollidableEntity implements IRenderable{
        if(isEnemy) {
 //         this.bulletpic = new Image("bulletEnemy.png");
        } else {
-           this.top = new Image("Bullet_top.png");
-           this.down = new Image("Bullet_down.png");
-           this.right = new Image("Bullet_right.png");
-           this.left = new Image("Bullet_left.png");
-           if(direction == 0) this.bulletpic = new Image("Bullet_top.png");
-           else if (direction == 1) this.bulletpic = new Image("Bullet_right.png");
-           else if (direction == 2) this.bulletpic = new Image("Bullet_down.png");
-           else if (direction == 3) this.bulletpic = new Image("Bullet_left.png");
+           this.top = new Image("/res/Bullet_top.png");
+           this.down = new Image("/res/Bullet_down.png");
+           this.right = new Image("/res/Bullet_right.png");
+           this.left = new Image("/res/Bullet_left.png");
+           if(direction == 0) this.bulletpic = new Image("/res/Bullet_top.png");
+           else if (direction == 1) this.bulletpic = new Image("/res/Bullet_right.png");
+           else if (direction == 2) this.bulletpic = new Image("/res/Bullet_down.png");
+           else if (direction == 3) this.bulletpic = new Image("/res/Bullet_left.png");
        }
       
    }

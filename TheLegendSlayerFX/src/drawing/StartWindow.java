@@ -26,7 +26,7 @@ public class StartWindow{
 	private Canvas bg;
 	private GraphicsContext gc;
 	private AnimationTimer spaceanimation;
-	private AnimationTimer soundanimation;
+//	private AnimationTimer soundanimation;
 	private int framebg = 0;
 	private int framespace = 0;
 	private int numberselected = 0;
@@ -34,19 +34,19 @@ public class StartWindow{
 	private Random rand;
 	public Image background;
 	public AudioClip soundbg;
-	public AudioClip buttonsound = new AudioClip(ClassLoader.getSystemResource("buttonsound.wav").toString());
-	public String[] //soundURL = {"Hello.mp3","Coward.mp3","JustBeFriend.mp3","TellYourWorld.mp3","zombie_Assault.mp3"};
-	soundURL = {"zombie_Assault.mp3","taleOfFive.mp3","Fortress.mp3","CompanyOfHeroes.mp3"};
+//	public AudioClip buttonsound = new AudioClip(ClassLoader.getSystemResource("buttonsound.wav").toString());
+//	public String[] //soundURL = {"Hello.mp3","Coward.mp3","JustBeFriend.mp3","TellYourWorld.mp3","zombie_Assault.mp3"};
+//	soundURL = {"zombie_Assault.mp3","taleOfFive.mp3","Fortress.mp3","CompanyOfHeroes.mp3"};
 	
 	public StartWindow(Stage primaryStage) {
-		rand = new Random();
-		int x = rand.nextInt(soundURL.length);
+//		rand = new Random();
+//		int x = rand.nextInt(soundURL.length);
 		this.primaryStage = primaryStage;
 		//bg = new Canvas(1376,450);
 		bg = new Canvas(1200,603);
 		gc = bg.getGraphicsContext2D();
-		soundbg = new AudioClip(ClassLoader.getSystemResource(soundURL[x]).toString());
-		soundbg.play();
+//		soundbg = new AudioClip(ClassLoader.getSystemResource(soundURL[x]).toString());
+//		soundbg.play();
 	}
 	public void draw(GraphicsContext gc) {
 		StackPane root = new StackPane();
@@ -78,18 +78,18 @@ public class StartWindow{
 			
 		};
 		spaceanimation.start();
-		soundanimation = new AnimationTimer() {
-			public void handle(long now) {
-				if (soundbg.isPlaying()==false) playSong();
-			}
-		};
-		soundanimation.start();
+//		soundanimation = new AnimationTimer() {
+//			public void handle(long now) {
+//				if (soundbg.isPlaying()==false) playSong();
+//			}
+//		};
+//		soundanimation.start();
 	}
 	public void setBackground() {
 		GraphicsContext gc = bg.getGraphicsContext2D();
 		gc.setFill(Color.WHITE);
 		gc.fillRect(0, 0, bg.getWidth(), bg.getHeight());
-		background = new Image("StartWindow.png");
+		background = new Image("/res/StartWindow.png");
 		gc.drawImage(background, 0,0);
 		//gc.setFill(Color.DIMGRAY);
 		//gc.setFont(TITLE_FONT);
@@ -103,11 +103,11 @@ public class StartWindow{
 		bg.setOnKeyPressed((KeyEvent) -> {
 			if (isPressedSpace) {
 				if (KeyEvent.getCode() == KeyCode.UP) {
-					if (numberselected !=0) {buttonsound.play() ;numberselected--;}
+					if (numberselected !=0) {numberselected--;}
 					drawSelectedColor();
 				}
 				if (KeyEvent.getCode() == KeyCode.DOWN) {
-					if (numberselected!=1) {buttonsound.play();numberselected++;}
+					if (numberselected!=1) {numberselected++;}
 					drawSelectedColor();
 				}
 //				if (KeyEvent.getCode() == KeyCode.SPACE) {
@@ -127,8 +127,8 @@ public class StartWindow{
 			}
 			
 			if (KeyEvent.getCode() == KeyCode.R) {
-				soundbg.stop();
-				playSong();
+//				soundbg.stop();
+//				playSong();
 			}
 			if (KeyEvent.getCode() == KeyCode.ESCAPE) {
 				Platform.exit();
@@ -144,6 +144,8 @@ public class StartWindow{
 			}
 			if (KeyEvent.getCode() == KeyCode.SPACE) {
 				isPressedSpace = true;
+				GameWindow game = new GameWindow();
+				
 				spaceanimation.stop();
 				drawSelectedColor();
 			}
@@ -191,11 +193,11 @@ public class StartWindow{
 			gc.strokeRect(506, 283, 130, 50);
 		}
 	}
-	public void playSong() {
-		int x = rand.nextInt(soundURL.length);
-		soundbg = new AudioClip(ClassLoader.getSystemResource(soundURL[x]).toString());
-		soundbg.play();
-	}
+//	public void playSong() {
+//		int x = rand.nextInt(soundURL.length);
+//		soundbg = new AudioClip(ClassLoader.getSystemResource(soundURL[x]).toString());
+//		soundbg.play();
+//	}
 	public void startAnimation() {
 		draw(gc);
 		

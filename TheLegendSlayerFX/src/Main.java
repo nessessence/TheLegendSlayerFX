@@ -1,5 +1,6 @@
 
 import drawing.GameScreen;
+import drawing.StartWindow;
 import input.InputUtility;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -16,26 +17,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) {
-		StackPane root = new StackPane();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.setTitle("Tank game");
-
-		GameLogic logic = new GameLogic();
-		GameScreen gameScreen = new GameScreen(640, 480);
-		root.getChildren().add(gameScreen);
-		gameScreen.requestFocus();
-		
+		StartWindow start = new StartWindow(stage);
+		start.startAnimation();
 		stage.show();
-		
-		AnimationTimer animation = new AnimationTimer() {
-			public void handle(long now) {
-				gameScreen.paintComponent();
-				logic.logicUpdate();
-				RenderableHolder.getInstance().update();
-				InputUtility.updateInputState();
-			}
-		};
-		animation.start();
 	}
 }

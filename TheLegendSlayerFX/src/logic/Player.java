@@ -27,10 +27,10 @@ public class Player extends CollidableEntity {
     public Player(double x, double y) {
         this.x = x;
         this.y = y;
-        this.left = new Image("soldier_left.gif");
-        this.right = new Image("soldier_right.gif");
-        this.top = new Image("soldier_top.gif");
-        this.down = new Image("soldier_down.gif");
+        this.left = new Image("/res/soldier_left.gif");
+        this.right = new Image("/res/soldier_right.gif");
+        this.top = new Image("/res/soldier_top.gif");
+        this.down = new Image("/res/soldier_down.gif");
         setPlayer();
         this.direction = 2;
     }
