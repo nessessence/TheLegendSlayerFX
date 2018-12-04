@@ -110,19 +110,19 @@ public class StartWindow{
 					if (numberselected!=1) {numberselected++;}
 					drawSelectedColor();
 				}
-//				if (KeyEvent.getCode() == KeyCode.SPACE) {
-//						if (numberselected==0) {
-//							GameWindow game = new GameWindow(primaryStage);
-//							game.drawGameWinDow();
-//							spaceanimation.stop();
-//							soundanimation.stop();
-//							soundbg.stop();
-//						}
-//						if (numberselected==1) {
-//							Platform.exit();
-//						}
-//						
-//				}
+				if (KeyEvent.getCode() == KeyCode.SPACE) {
+						if (numberselected==0) {
+							GameWindow game = new GameWindow(primaryStage);
+							game.drawGameWindow();
+							spaceanimation.stop();
+						
+					
+						}
+						if (numberselected==1) {
+							Platform.exit();
+						}
+						
+				}
 				
 			}
 			
@@ -144,8 +144,6 @@ public class StartWindow{
 			}
 			if (KeyEvent.getCode() == KeyCode.SPACE) {
 				isPressedSpace = true;
-				GameWindow game = new GameWindow();
-				
 				spaceanimation.stop();
 				drawSelectedColor();
 			}
