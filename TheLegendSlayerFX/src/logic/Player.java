@@ -97,7 +97,7 @@ public class Player extends CollidableEntity {
             this.setDirection(2);
             startpic = down;
         }
-        if (InputUtility.getKeyPressed(KeyCode.SPACE)&& 	(System.currentTimeMillis() - lastShot) > 450/machinegunLevel) {
+        if (InputUtility.getKeyPressed(KeyCode.SPACE)&& 	(System.currentTimeMillis() - lastShot) > 600/machinegunLevel) {
             Bullet bullet = new Bullet(this.x,this.y, this.getDirection());
             lastShot =  System.currentTimeMillis() ;
             RenderableHolder.getInstance().add(bullet);
