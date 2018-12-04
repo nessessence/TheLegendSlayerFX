@@ -3,6 +3,7 @@ package logic;
 import sharedObject.IRenderable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 public class Bullet extends CollidableEntity implements IRenderable{
   
@@ -12,25 +13,24 @@ public class Bullet extends CollidableEntity implements IRenderable{
    private Image down;
    private Image right;
    private Image left;
+   public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString()); ;
    private boolean isEnemy = false;
    public Bullet(double x, double y ,int direction) {
        this.x = x;
        this.y = y;
        this.direction = direction;
        setBulletPic(direction);
+       playSound() ;
+       
    }
    public void setBulletPic(int direction) {
        if(isEnemy) {
 //         this.bulletpic = new Image("bulletEnemy.png");
        } else {
-           this.top = new Image("Bullet_top.png");
-           this.down = new Image("Bullet_down.png");
-           this.right = new Image("Bullet_right.png");
-           this.left = new Image("Bullet_left.png");
-//           if(direction == 0) this.bulletpic = new Image("/res/Bullet_top.png");
-//           else if (direction == 1) this.bulletpic = new Image("/res/Bullet_right.png");
-//           else if (direction == 2) this.bulletpic = new Image("/res/Bullet_down.png");
-//           else if (direction == 3) this.bulletpic = new Image("/res/Bullet_left.png");
+    	   this.top = new Image(ClassLoader.getSystemResource("Bullet_top.png").toString()) ;
+           this.down = new Image(ClassLoader.getSystemResource("Bullet_down.png").toString()) ;
+           this.right = new Image(ClassLoader.getSystemResource("Bullet_right.png").toString()) ;
+           this.left = new Image(ClassLoader.getSystemResource("Bullet_left.png").toString()) ;
            if(direction == 0) this.bulletpic = top ;
            else if (direction == 1) this.bulletpic = right ;
            else if (direction == 2) this.bulletpic = down;
@@ -53,6 +53,9 @@ public class Bullet extends CollidableEntity implements IRenderable{
            this.x -= 10;
        }
    }
+   public void playSound() {
+	   soundshot.play() ;
+	}
   
   
 }

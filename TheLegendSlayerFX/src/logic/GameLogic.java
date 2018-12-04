@@ -10,7 +10,7 @@ public class GameLogic {
 	
 	private Player player;
 	private Mine mine;
-	
+
 	public GameLogic(){
 		this.gameObjectContainer = new ArrayList<Entity>();
 	

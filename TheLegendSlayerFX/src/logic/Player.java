@@ -9,7 +9,7 @@ import javafx.scene.input.KeyCode;
  
  
 public class Player extends CollidableEntity {
-    private int machinegunLevel = 0;
+    private int machinegunLevel = 1;
     private int life = 10;
     public Image startpic;
     private int score = 0;
@@ -20,6 +20,7 @@ public class Player extends CollidableEntity {
     private Image down;
     private int speed = 1 ;
     private int direction; // top->0,right->1,back->2,left->3
+    private long lastShot = 0;
     @Override
     public void draw(GraphicsContext gc) {
         gc.drawImage(startpic, this.x, this.y);
@@ -27,10 +28,11 @@ public class Player extends CollidableEntity {
     public Player(double x, double y) {
         this.x = x;
         this.y = y;
-        this.left = new Image("soldier_left.gif");
-        this.right = new Image("soldier_right.gif");
-        this.top = new Image("soldier_top.gif");
-        this.down = new Image("soldier_down.gif");
+        this.left = new Image(ClassLoader.getSystemResource("soldier_left.gif").toString()) ;
+        this.right = new Image(ClassLoader.getSystemResource("soldier_right.gif").toString()) ;
+        this.top = new Image(ClassLoader.getSystemResource("soldier_top.gif").toString()) ;
+        this.down = new Image(ClassLoader.getSystemResource("soldier_down.gif").toString()) ;
+ 
         setPlayer();
         this.direction = 2;
     }
@@ -95,8 +97,9 @@ public class Player extends CollidableEntity {
             this.setDirection(2);
             startpic = down;
         }
-        if (InputUtility.getKeyPressed(KeyCode.SPACE)) {
+        if (InputUtility.getKeyPressed(KeyCode.SPACE)&& 	(System.currentTimeMillis() - lastShot) > 450/machinegunLevel) {
             Bullet bullet = new Bullet(this.x,this.y, this.getDirection());
+            lastShot =  System.currentTimeMillis() ;
             RenderableHolder.getInstance().add(bullet);
            
         }
