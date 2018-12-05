@@ -18,7 +18,12 @@ public class RenderableHolder {
 	private List<IRenderable> entities;
 	private Comparator<IRenderable> comparator;
 	public static Image mapSprite;
-	public static Image mineSprite;
+	public static Image castlePlayerSprite;
+	public static Image pondSprite;
+	public static Image tree1Sprite; 
+	public static Image deadTreeSprite; 
+	public static Image barbewireSprite;
+	public static Image cannonSprite;
 	public static AudioClip  explosionSound;
 
 	static {
@@ -39,8 +44,13 @@ public class RenderableHolder {
 	}
 
 	public static void loadResource() {
-		mapSprite = new Image(ClassLoader.getSystemResource("Map.png").toString());
-		mineSprite = new Image(ClassLoader.getSystemResource("Mine.png").toString());
+		cannonSprite = new Image(ClassLoader.getSystemResource("cannon.png").toString());
+		barbewireSprite = new Image(ClassLoader.getSystemResource("barbewire.png").toString());
+		deadTreeSprite = new Image(ClassLoader.getSystemResource("deadtree.png").toString());
+		pondSprite = new Image(ClassLoader.getSystemResource("pond.png").toString());
+		castlePlayerSprite = new Image(ClassLoader.getSystemResource("castle.gif").toString());
+		tree1Sprite = new Image(ClassLoader.getSystemResource("tree1.png").toString());
+		mapSprite = new Image(ClassLoader.getSystemResource("brown.png").toString());
 		explosionSound = new AudioClip(ClassLoader.getSystemResource("Explosion.wav").toString());
 	}
 
@@ -50,7 +60,6 @@ public class RenderableHolder {
 		Collections.sort(entities, comparator);
 		for(IRenderable x: entities){
 			if(x instanceof Player) System.out.println("player");
-			if(x instanceof Mine) System.out.println("mine");
 			if(x instanceof Field) System.out.println("field");
 			
 		}

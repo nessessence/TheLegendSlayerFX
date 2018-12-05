@@ -25,7 +25,7 @@ public class Player extends CollidableEntity {
     private Image down;
     private Random rand;
     private int move_count ;
-    private int speed = 1 ;
+    private int speed = 3 ;
     private int direction; // top->0,right->1,back->2,left->3
     private long lastShot = 0;
     public String[] soundURL = {"playAd1.mp3","playAd2.mp3","playAd3.mp3","playAd4.mp3","playAd5.mp3","playAd6.mp3","playAd7.mp3","playAd8.mp3","playAd9.mp3","playAd10.mp3","playAd11.mp3","playAd12.mp3","playAd13.mp3","playAd14.mp3","playAd15.mp3","playAd16.mp3","playAd17.mp3","playAd18.mp3","playAd19.mp3"} ;
@@ -133,12 +133,12 @@ public class Player extends CollidableEntity {
         if( move_count > 12 & (System.currentTimeMillis() - lastSay) > 4000 ) {
         	System.out.println(move_count);
         	move_count = 0 ;
-        	System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
+        	//System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
         	lastSay = System.currentTimeMillis() ;
         	
         	playSound(); 
         }
-        System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
+       // System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
        
     }
 ; 

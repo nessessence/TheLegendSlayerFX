@@ -17,9 +17,7 @@ public class GameLogic {
 		Field field = new Field();
 		RenderableHolder.getInstance().add(field);
 		player = new Player(320,240);
-		mine = new Mine(100,100);
 		addNewObject(player);
-		addNewObject(mine);
 	}
 	
 	protected void addNewObject(Entity entity){

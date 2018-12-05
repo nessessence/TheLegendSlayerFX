@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import logic.Field;
 import logic.GameLogic;
 import logic.Player;
 import sharedObject.RenderableHolder;
@@ -47,7 +48,7 @@ public class GameWindow extends Canvas{
 	private GameLogic logic;
 	private GameScreen gameScreen;
 	public GameWindow(Stage primaryStage) {
-		setWidth(1000);
+		setWidth(800);
 		setHeight(600);
 		this.primaryStage = primaryStage;
 		gc = getGraphicsContext2D();
@@ -57,12 +58,12 @@ public class GameWindow extends Canvas{
 		this.primaryStage.setScene(scene);
 		this.primaryStage.setTitle("The Legend Slayer");
 		logic = new GameLogic();
-		gameScreen = new GameScreen(640, 480);
+		gameScreen = new GameScreen(800, 600);
 		s.getChildren().add(gameScreen);
 		gameScreen.requestFocus();
 //		requestFocus();
 	}
-	public void drawGameWindow() {
+	public void drawGameWindow() {		
 		AnimationTimer animation = new AnimationTimer() {
 			public void handle(long now) {
 				gameScreen.paintComponent();
