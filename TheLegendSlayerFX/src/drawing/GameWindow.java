@@ -47,8 +47,8 @@ public class GameWindow extends Canvas{
 	private GameLogic logic;
 	private GameScreen gameScreen;
 	public GameWindow(Stage primaryStage) {
-		setWidth(800);
-		setHeight(450);
+		setWidth(1000);
+		setHeight(600);
 		this.primaryStage = primaryStage;
 		gc = getGraphicsContext2D();
 		StackPane s = new StackPane();
