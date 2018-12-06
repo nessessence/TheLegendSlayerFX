@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 
 public class Zombie extends Monster {
 	public Zombie(double x, double y) {
+		System.out.println("tetst");
 		setImage();
 		setInfo(x,y);
 	}

@@ -1,10 +1,10 @@
 package logic;
  
 import sharedObject.IRenderable;
-import logic.MonsterAI; 
+import logic.MonsterAI;
 import java.util.ArrayList;
 import java.util.Random;
-
+ 
 import input.InputUtility;
 import sharedObject.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
@@ -37,7 +37,7 @@ public class Player extends CollidableEntity {
         gc.drawImage(startpic, this.x, this.y);
     }
     public Player(double x, double y) {
-    	//playSound();
+        //playSound();
         this.x = x;
         this.y = y;
         this.left = new Image(ClassLoader.getSystemResource("soldier_left.gif").toString()) ;
@@ -49,7 +49,7 @@ public class Player extends CollidableEntity {
         setPlayer();
         this.direction = 2;
 //        for(int i = 0 ; i < soundURL.length ; i++) {
-//        	sounds.add( new AudioClip(ClassLoader.getSystemResource(soundURL[i]).toString()));
+//          sounds.add( new AudioClip(ClassLoader.getSystemResource(soundURL[i]).toString()));
 //        }
     }
     public void gainHP(){
@@ -77,16 +77,16 @@ public class Player extends CollidableEntity {
         this.startpic = down;
     }
     public void goUp() {
-       this.y -= this.getSpeed();
+       this.setY(this.getY()-this.getSpeed());
     }
     public void goDown() {
-       this.y += this.getSpeed();
+       this.setY(this.getY()+this.getSpeed());
     }
     public void goRight() {
-       this.x += this.getSpeed();
+       this.setX(this.getX()+this.getSpeed());
     }
     public void goLeft() {
-       this.x -= this.getSpeed();
+       this.setX(this.getX()-this.getSpeed());
     }
     public int getDirection() {
         return this.direction;
@@ -94,11 +94,29 @@ public class Player extends CollidableEntity {
     public void setDirection(int direction){
         this.direction = direction;
     }
+    public void setX(double total){
+        if(total >= 735 || total <= 40){}
+        else {
+            this.x = total;
+        }
+    }
+    public void setY(double total){
+        if(total >= 530 || total <= 40){}
+        else {
+            this.y = total;
+        }
+    }
+    public double getX(){
+        return this.x;
+    }
+    public double getY(){
+        return this.y;
+    }
     public void update() {
-//    	if(System.currentTimeMillis() - lastSay > 10000 ) playSound(); lastSay = System.currentTimeMillis() ;
+//      if(System.currentTimeMillis() - lastSay > 10000 ) playSound(); lastSay = System.currentTimeMillis() ;
         if (InputUtility.getKeyPressed(KeyCode.UP)) {
             goUp();
-            
+           
             this.setDirection(0);
             startpic = top;
             move_count += 1 ;
@@ -119,19 +137,16 @@ public class Player extends CollidableEntity {
             startpic = down;
             move_count += 1 ;
         }
-        if (InputUtility.getKeyPressed(KeyCode.SPACE)&& 	(System.currentTimeMillis() - lastShot) > 200/machinegunLevel) {
+        if (InputUtility.getKeyPressed(KeyCode.SPACE)&&     (System.currentTimeMillis() - lastShot) > 200/machinegunLevel) {
             Bullet bullet = new Bullet(this.x,this.y, this.getDirection());
             lastShot =  System.currentTimeMillis() ;
             RenderableHolder.getInstance().add(bullet);
-            
+           
             move_count += 1  ;
-        } 
+        }
         if(InputUtility.getKeyPressed(KeyCode.G)) {
-        	Zombie zombie = new Zombie(300,300);
-        	Slime slime = new Slime(100,100);
-        	RenderableHolder.getInstance().add(zombie);
-        	RenderableHolder.getInstance().add(slime);
-        	
+            Zombie monster = new Zombie(300,300);
+            RenderableHolder.getInstance().add(monster);
         }
        
         if (InputUtility.isLeftClickTriggered()) {
@@ -140,23 +155,23 @@ public class Player extends CollidableEntity {
             move_count += 1 ;
         }
         if( move_count > 12 & (System.currentTimeMillis() - lastSay) > 4000 ) {
-        	System.out.println(move_count);
-        	move_count = 0 ;
-        	//System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
-        	lastSay = System.currentTimeMillis() ;
-        	
-        	playSound(); 
+            System.out.println(move_count);
+            move_count = 0 ;
+            //System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
+            lastSay = System.currentTimeMillis() ;
+           
+            playSound();
         }
        // System.out.println(System.currentTimeMillis() + "," + lastSay+ ","+ (System.currentTimeMillis()-lastSay));
        
     }
-; 
-	public void playSound() {
-		if(sound.isPlaying()) return ;
-		int x = (int) (Math.random()*19) ;   // fucking important 
-		sound  = new AudioClip(ClassLoader.getSystemResource(soundURL[x]).toString());
-		sound.play();
-	}
+;
+    public void playSound() {
+        if(sound.isPlaying()) return ;
+        int x = (int) (Math.random()*19) ;   // fucking important
+        sound  = new AudioClip(ClassLoader.getSystemResource(soundURL[x]).toString());
+        sound.play();
+    }
     public int getLife() {
         return this.life;
     }
@@ -170,6 +185,6 @@ public class Player extends CollidableEntity {
         this.level = level;
     }
    public void hitByMine() {
-	   
+       
    }
-}
+   }
