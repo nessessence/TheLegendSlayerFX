@@ -71,7 +71,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
             startpic = left;
             this.setX(this.getX()-this.getSpeed());
         }
-        System.out.println(" x : y " + x+":"+y);
+        //System.out.println(" x : y " + x+":"+y);
     }
  
    

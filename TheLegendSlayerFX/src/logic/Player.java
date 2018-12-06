@@ -145,8 +145,16 @@ public class Player extends CollidableEntity {
             move_count += 1  ;
         }
         if(InputUtility.getKeyPressed(KeyCode.G)) {
-            Zombie monster = new Zombie(300,300);
-            RenderableHolder.getInstance().add(monster);
+            Zombie zombie = new Zombie(300,300);
+            Unicorn unicorn = new Unicorn(70, 70);
+            Slime slime = new Slime(600,400) ;
+            God god = new God(200,200) ;
+            
+            
+            RenderableHolder.getInstance().add(zombie);
+            RenderableHolder.getInstance().add(unicorn);
+            RenderableHolder.getInstance().add(slime);
+            RenderableHolder.getInstance().add(god);
         }
        
         if (InputUtility.isLeftClickTriggered()) {
