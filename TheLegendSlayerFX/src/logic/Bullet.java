@@ -15,7 +15,8 @@ public class Bullet extends CollidableEntity implements IRenderable{
    private Image left;
    public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString()); 
    private boolean isEnemy = false;
-   public Bullet(double x, double y ,int direction) {
+ 
+   public Bullet(double x, double y ,int direction ) {
        this.x = x;
        this.y = y;
        this.direction = direction;

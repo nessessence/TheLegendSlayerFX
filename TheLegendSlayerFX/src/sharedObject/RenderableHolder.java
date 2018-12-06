@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import logic.Field;
 import logic.Mine;
+import logic.Monster;
 import logic.Player;
 import logic.Tank;
 
@@ -74,6 +75,7 @@ public class RenderableHolder {
             IRenderable entity = entities.get(i);
             if(entity instanceof Player) ((Player)entity).update();
             if(entity instanceof Bullet) ((Bullet)entity).update();
+            if(entity instanceof Monster) ((Monster)entity).update();
         }
 	}
 

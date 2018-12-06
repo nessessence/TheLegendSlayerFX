@@ -20,7 +20,7 @@ public class Mine extends CollidableEntity{
 	
 	@Override
 	public void draw(GraphicsContext gc) {
-		gc.drawImage(RenderableHolder.mineSprite, x-radius, y-radius);
+		//gc.drawImage(RenderableHolder.mineSprite, x-radius, y-radius);
 	}
 
 }

@@ -1,7 +1,7 @@
 package logic;
  
 import sharedObject.IRenderable;
-
+import logic.MonsterAI; 
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -98,6 +98,7 @@ public class Player extends CollidableEntity {
 //    	if(System.currentTimeMillis() - lastSay > 10000 ) playSound(); lastSay = System.currentTimeMillis() ;
         if (InputUtility.getKeyPressed(KeyCode.UP)) {
             goUp();
+            
             this.setDirection(0);
             startpic = top;
             move_count += 1 ;
@@ -122,7 +123,12 @@ public class Player extends CollidableEntity {
             Bullet bullet = new Bullet(this.x,this.y, this.getDirection());
             lastShot =  System.currentTimeMillis() ;
             RenderableHolder.getInstance().add(bullet);
+            
             move_count += 1  ;
+        } 
+        if(InputUtility.getKeyPressed(KeyCode.G)) {
+        	Monster monster = new Monster(300,300);
+        	RenderableHolder.getInstance().add(monster);
         }
        
         if (InputUtility.isLeftClickTriggered()) {
