@@ -1,7 +1,7 @@
 package logic;
  
 import sharedObject.IRenderable;
-import logic.MonsterAI;
+
 import java.util.ArrayList;
 import java.util.Random;
  
@@ -38,6 +38,7 @@ public class Player extends CollidableEntity {
     }
     public Player(double x, double y) {
         //playSound();
+    	this.radius = 50 ;
         this.x = x;
         this.y = y;
         this.left = new Image(ClassLoader.getSystemResource("soldier_left.gif").toString()) ;
@@ -192,7 +193,9 @@ public class Player extends CollidableEntity {
     public void setLevel(int level) {
         this.level = level;
     }
-   public void hitByMine() {
-       
+   public void isHit() {
+       this.life--;
+       this.setX(100);
+       this.setY(100);
    }
    }

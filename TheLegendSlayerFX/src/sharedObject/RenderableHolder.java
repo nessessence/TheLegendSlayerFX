@@ -8,10 +8,10 @@ import logic.Bullet;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import logic.Field;
-import logic.Mine;
 import logic.Monster;
 import logic.Player;
-import logic.Tank;
+import logic.CollidableEntity;
+import logic.CollisionUtility;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
@@ -70,6 +70,21 @@ public class RenderableHolder {
 		for (int i = entities.size() - 1; i >= 0; i--) {
 			if (entities.get(i).isDestroyed())
 				entities.remove(i);
+		}
+		for(int i = 0; i < entities.size() ; i++) {
+			IRenderable entity1 = entities.get(i);
+			for(int j = i + 1 ; j < entities.size() ; j++) {
+				IRenderable entity2 = entities.get(j);
+				if(entity1 instanceof Player) {
+					System.out.println("pppppppppppppppppppp");
+					Player player = (Player)entity1;
+					if(player.collideWith((CollidableEntity)entity2)) {
+						System.out.println("kkkkkkkkkkkkkkkkkkkk");
+						CollisionUtility.checkCollisionsPlayer(player, (CollidableEntity)entity2);
+						System.out.println("fuckkkkk");
+					}
+				}
+			}
 		}
 		for (int i = 0; i <  entities.size(); i++) {
             IRenderable entity = entities.get(i);

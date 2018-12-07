@@ -6,6 +6,7 @@ public class God extends Monster {
 	public God(double x, double y) {
 		setImage();
 		setInfo(x,y);
+		this.radius = 50 ;
 	}
 		@Override
 		public void setImage() {

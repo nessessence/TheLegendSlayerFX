@@ -1,5 +1,6 @@
 package logic;
 
+import javafx.scene.shape.Rectangle;
 import sharedObject.IRenderable;
 
 public abstract class Entity implements IRenderable{
@@ -27,4 +28,5 @@ public abstract class Entity implements IRenderable{
 	public int getZ(){
 		return z;
 	}
+
 }

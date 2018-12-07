@@ -80,6 +80,13 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
           gc.drawImage(this.startpic, this.x,this.y);      
     }
  
+    public void isHit() {
+    	if(--this.health <= 0) isDie();
+    	
+    }
+    public void isDie() {
+    	this.destroyed = true;
+    }
  
  
  

@@ -7,9 +7,8 @@ import sharedObject.RenderableHolder;
 
 public class GameLogic {
 	private List<Entity> gameObjectContainer;
-	
 	private Player player;
-	private Mine mine;
+
 
 	public GameLogic(){
 		this.gameObjectContainer = new ArrayList<Entity>();
@@ -27,8 +26,9 @@ public class GameLogic {
 	
 	public void logicUpdate(){
 		player.update();
-		if(!mine.isDestroyed() && player.collideWith(mine)){
-			mine.onCollision(player);
-		}
+		
+//		if(!mine.isDestroyed() && player.collideWith(mine)){
+//			mine.onCollision(player);
+//		}
 	}
 }
