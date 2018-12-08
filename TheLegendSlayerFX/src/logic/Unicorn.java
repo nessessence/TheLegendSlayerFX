@@ -8,7 +8,7 @@ public class Unicorn extends Monster {
 		setImage();
 		this.health = 5;
 		this.speed = 3;
-		this.radius = 20 ;
+		this.radius = 30 ;
 		this.score = 50;
 		this.setWidth(60);
 		this.setHeight(40);

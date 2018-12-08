@@ -11,12 +11,12 @@ import obstruct.Obstacle;
 public class Bullet extends CollidableEntity implements IRenderable{
   
    private int direction; // 0 top , 1 right , 2 down, 3 left
-   private Image bulletpic;
-   private Image top;
-   private Image down;
-   private Image right;
-   private Image left;
-   public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString()); 
+   protected Image bulletpic;
+   protected Image top;
+   protected Image down;
+   protected Image right;
+   protected Image left;
+   public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString());   
    private int speed = 10;
    
  
@@ -25,6 +25,15 @@ public class Bullet extends CollidableEntity implements IRenderable{
        this.y = y;
        this.direction = direction;
        setBulletPic(direction);
+       playSound() ;
+       
+   }
+   public Bullet(double x, double y ,int direction , AudioClip soundshot ) {
+       this.x = x;
+       this.y = y;
+       this.direction = direction;
+       setBulletPic(direction);
+       this.soundshot = soundshot ;
        playSound() ;
        
    }

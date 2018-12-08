@@ -7,6 +7,6 @@ public class Cannon extends Metal{
 		super(x,y,new Image("cannon.png"));
 		this.setWidth(100);
 		this.setHeight(100);
-		this.radius = 50;
+		this.radius = 40;
 	}
 }

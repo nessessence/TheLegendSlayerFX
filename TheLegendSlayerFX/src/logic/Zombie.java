@@ -8,7 +8,7 @@ public class Zombie extends Monster {
 		setImage();
 		this.health = 2;
 		this.speed = 1;
-		this.radius = 15;
+		this.radius = 20;
 		this.score = 20;
 		this.setHeight(32);
 		this.setWidth(32);

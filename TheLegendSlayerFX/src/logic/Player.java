@@ -16,7 +16,7 @@ import obstruct.Obstacle;
  
 public class Player extends CollidableEntity {
     private int machinegunLevel = 1;
-    private int life = 10;
+    private int life ;
     public Image startpic;
     private int score = 0;
     private int level = 1;
@@ -24,7 +24,6 @@ public class Player extends CollidableEntity {
     private Image right ;
     private Image top;
     private Image down;
-    private Random rand;
     private int move_count ;
     private int speed = 2 ;
     private int direction; // top->0,right->1,back->2,left->3
@@ -41,7 +40,7 @@ public class Player extends CollidableEntity {
     }
     public Player(double x, double y) {
         //playSound();
-    	this.life = 5 ;
+    	this.life = 10 ;
     	this.setHeight(30);
     	this.setWidth(30);
     	this.z = 2 ;
@@ -188,12 +187,14 @@ public class Player extends CollidableEntity {
             Unicorn unicorn = new Unicorn(70, 70);
             Slime slime = new Slime(600,400) ;
             God god = new God(200,200) ;
+            Dragon dragon = new Dragon(500,500) ;
             
             
             RenderableHolder.getInstance().add(zombie);
             RenderableHolder.getInstance().add(unicorn);
             RenderableHolder.getInstance().add(slime);
             RenderableHolder.getInstance().add(god);
+            RenderableHolder.getInstance().add(dragon);
         }
        
         if (InputUtility.isLeftClickTriggered()) {
@@ -232,12 +233,10 @@ public class Player extends CollidableEntity {
         this.level = level;
     }
    public void isHit() {
-	   System.out.println("isHit");
 	   scream.play();
        RenderableHolder.getPlayer().life--;
        RenderableHolder.getPlayer().setX(100);
        RenderableHolder.getPlayer().setY(100);
-       System.out.println(this.x+" ," +RenderableHolder.getPlayer().getX() );
 
        
        

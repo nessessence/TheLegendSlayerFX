@@ -10,6 +10,8 @@ import sharedObject.IRenderable;
 import sharedObject.RenderableHolder;
  
 public abstract class Monster extends CollidableEntity implements IRenderable{
+	protected boolean canFire = false;
+	protected long lastShot  ;
 	protected int score ; 
 	protected Image top ;
     protected Image left;
@@ -17,7 +19,15 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     protected Image down;
     protected Image startpic ;
     private int direction = 2;
-    protected int health;
+    public int getDirection() {
+		return direction;
+	}
+
+
+	public void setDirection(int direction) {
+		this.direction = direction;
+	}
+	protected int health;
     protected int speed;
     private int dirTimer = 0, dirTimeInterval = 30;
     
@@ -39,6 +49,14 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
         this.direction = rand.nextInt(4);
     }
     public void update(){
+    	if(canFire) {
+    		if(System.currentTimeMillis() - lastShot > 3000) {
+                Fireball bullet = new Fireball(this.x,this.y, this.getDirection());
+                lastShot =  System.currentTimeMillis() ;
+                RenderableHolder.getInstance().add(bullet);
+    		}
+    		
+    	}
        
         if(dirTimer >= dirTimeInterval){
             randDir();
@@ -83,6 +101,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed());
     	if(canGo(future)) return;
        this.setY(this.getY()-this.getSpeed());
+       this.setDirection(0);
    
        startpic = top;
       
@@ -91,6 +110,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed());
     	if(canGo(future)) return;
        this.setY(this.getY()+this.getSpeed());
+       this.setDirection(2);
        
        startpic = down;
   
@@ -100,12 +120,14 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     	if(canGo(future)) return;
        this.setX(this.getX()+this.getSpeed());
        startpic = right;
+       this.setDirection(1);
     }
      
     public void goLeft() {
     	MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.y);
     	if(canGo(future)) return;
        this.setX(this.getX()-this.getSpeed());
+       this.setDirection(3);
    
        startpic = left;
   

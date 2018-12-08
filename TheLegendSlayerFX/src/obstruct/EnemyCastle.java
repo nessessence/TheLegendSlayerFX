@@ -7,6 +7,6 @@ public class EnemyCastle extends Metal{
 		super(x,y,new Image("enemycastle.png"));
 		this.setWidth(150);
 		this.setHeight(179);
-		this.radius = 90;
+		this.radius = 75;
 	}
 }

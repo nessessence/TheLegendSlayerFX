@@ -6,9 +6,11 @@ public class Slime extends Monster {
 	public Slime(double x, double y) {
 		super(x,y);
 		setImage();
+		this.setWidth(32);
+		this.setHeight(32);
 		this.health = 1;
 		this.speed = 1;
-		this.radius = 10 ;
+		this.radius = 15 ;
 		this.score = 10;
 		
 	}

@@ -16,6 +16,7 @@ import logic.Unicorn;
 import logic.Zombie;
 import logic.CollidableEntity;
 import logic.CollisionUtility;
+import logic.Dragon;
 import logic.Entity;
  
 public class RenderableHolder {
@@ -110,23 +111,24 @@ public class RenderableHolder {
             GenRate += 10 ;
             System.out.println("Monster generated !!,GenRate:"+GenRate);
             time = System.currentTimeMillis() ;
-            Zombie zombie = new Zombie(300,300);
-           
-            //Slime slime = new Slime(600,400) ;
-            //RenderableHolder.getInstance().add(slime) ;
+            Slime slime1 = new Slime(550, 70);
+            Slime slime2 = new Slime(550, 80);
+            Zombie zombie = new Zombie(550, 90);
+            RenderableHolder.getInstance().add(slime1);
+            RenderableHolder.getInstance().add(slime2);
             RenderableHolder.getInstance().add(zombie);
             if(System.currentTimeMillis() - start_time > 30000) {
-                Unicorn unicorn = new Unicorn(70, 70);
+                Unicorn unicorn = new Unicorn(550, 70);
                 RenderableHolder.getInstance().add(unicorn);
             }
             if(System.currentTimeMillis() - start_time >60000) {
-                God god = new God(200,200) ;
+                God god = new God(550, 70) ;
                 RenderableHolder.getInstance().add(god);
             }
             if(System.currentTimeMillis() - start_time >120000) {
                 // dragon
-                God god = new God(200,200) ;
-                RenderableHolder.getInstance().add(god);
+                Dragon dragon = new Dragon(550, 70) ;
+                RenderableHolder.getInstance().add(dragon);
             }
 //            
  
