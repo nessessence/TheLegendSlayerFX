@@ -23,6 +23,7 @@ public class Zombie extends Monster {
 		this.y = y;
 		this.health = 1;
 		this.speed = 2;
+		this.radius = 5 ;
 	}
 
 }

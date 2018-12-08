@@ -8,14 +8,24 @@ import logic.Bullet;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import logic.Field;
+import logic.God;
 import logic.Monster;
 import logic.Player;
+import logic.Slime;
+import logic.Unicorn;
+import logic.Zombie;
 import logic.CollidableEntity;
 import logic.CollisionUtility;
+import logic.Entity;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
-
+	
+	public static long time = 0 ;
+	public static long start_time ;
+	public static int GenRate ;
+	public static Player player ;
+	public static Field field ;
 	private List<IRenderable> entities;
 	private Comparator<IRenderable> comparator;
 	public static Image mapSprite;
@@ -26,9 +36,16 @@ public class RenderableHolder {
 	public static Image barbewireSprite;
 	public static Image cannonSprite;
 	public static AudioClip  explosionSound;
-
 	static {
 		loadResource();
+	}
+
+	public static Field getField() {
+		return RenderableHolder.field;
+	}
+
+	public static void setField(Field field) {
+		RenderableHolder.field = field;
 	}
 
 	public RenderableHolder() {
@@ -38,10 +55,21 @@ public class RenderableHolder {
 				return 1;
 			return -1;
 		};
+		time = System.currentTimeMillis() ;
+		start_time = System.currentTimeMillis() ;
+		GenRate = 0 ;
 	}
 
 	public static RenderableHolder getInstance() {
 		return instance;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public static void setPlayer(Player player) {
+	     RenderableHolder.player = player;
 	}
 
 	public static void loadResource() {
@@ -59,42 +87,67 @@ public class RenderableHolder {
 		System.out.println("add");
 		entities.add(entity);
 		Collections.sort(entities, comparator);
-		for(IRenderable x: entities){
-			if(x instanceof Player) System.out.println("player");
-			if(x instanceof Field) System.out.println("field");
-			
-		}
+//		for(IRenderable x: entities){
+//			if(x instanceof Player) System.out.println("player");
+//			if(x instanceof Field) System.out.println("field");
+//			
+//		}
 	}
+	public void monsterGen() {
+		if(System.currentTimeMillis() - time > 10000 - GenRate ) {
+			GenRate += 10 ;
+			System.out.println("Monster generated !!,GenRate:"+GenRate);
+			time = System.currentTimeMillis() ;
+            Zombie zombie = new Zombie(300,300);
+            
+            //Slime slime = new Slime(600,400) ;
+            //RenderableHolder.getInstance().add(slime) ;
+            RenderableHolder.getInstance().add(zombie);
+            if(System.currentTimeMillis() - start_time > 30000) {
+            	Unicorn unicorn = new Unicorn(70, 70);
+            	RenderableHolder.getInstance().add(unicorn);
+            }
+            if(System.currentTimeMillis() - start_time >60000) {
+                God god = new God(200,200) ;
+                RenderableHolder.getInstance().add(god);
+            }
+            if(System.currentTimeMillis() - start_time >120000) {
+            	// dragon 
+                God god = new God(200,200) ;
+                RenderableHolder.getInstance().add(god);
+            }
+//            
+ 
+            
+            }
+		}
+	
 
 	public void update() {
+		monsterGen() ;
 		for (int i = entities.size() - 1; i >= 0; i--) {
 			if (entities.get(i).isDestroyed())
 				entities.remove(i);
 		}
-		for(int i = 0; i < entities.size() ; i++) {
-			IRenderable entity1 = entities.get(i);
-			for(int j = i + 1 ; j < entities.size() ; j++) {
-				IRenderable entity2 = entities.get(j);
-				if(entity1 instanceof Player) {
-					System.out.println("pppppppppppppppppppp");
-					Player player = (Player)entity1;
-					if(player.collideWith((CollidableEntity)entity2)) {
-						System.out.println("kkkkkkkkkkkkkkkkkkkk");
-						CollisionUtility.checkCollisionsPlayer(player, (CollidableEntity)entity2);
-						System.out.println("fuckkkkk");
-					}
-				}
+		for(int i = 1 ; i < entities.size() ; i++) {  
+			if( ! (entities.get(i) instanceof Player && entities.get(i) instanceof CollidableEntity) ) {
+				CollidableEntity other = (CollidableEntity) entities.get(i) ;
+				if( player.collideWith( other )) CollisionUtility.checkCollisionsPlayer(player , other) ;
 			}
 		}
+		//System.out.println(entities.get(0).getClass()) ; // field
+		//System.out.println(entities.get(1).getClass()) ; //Player  don't be repeat 
+		
 		for (int i = 0; i <  entities.size(); i++) {
             IRenderable entity = entities.get(i);
             if(entity instanceof Player) ((Player)entity).update();
             if(entity instanceof Bullet) ((Bullet)entity).update();
             if(entity instanceof Monster) ((Monster)entity).update();
         }
-	}
 
+	}
 	public List<IRenderable> getEntities() {
 		return entities;
 	}
 }
+

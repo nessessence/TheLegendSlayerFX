@@ -12,11 +12,11 @@ public class Mine extends CollidableEntity{
 		this.radius = 20;
 	}
 	
-	public void onCollision(Player player){
-		player.hitByMine();
-		RenderableHolder.explosionSound.play();
-		this.destroyed = true;
-	}
+//	public void onCollision(Player player){
+//		player.hitByMine();
+//		RenderableHolder.explosionSound.play();
+//		this.destroyed = true;
+//	}
 	
 	@Override
 	public void draw(GraphicsContext gc) {

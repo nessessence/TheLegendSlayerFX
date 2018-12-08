@@ -12,7 +12,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 
 public class GameScreen extends Canvas {
-	
+	private static boolean isDrawMap = false ;
 	public GameScreen(double width, double height) {
 		super(width, height);
 		this.setVisible(true);
@@ -60,19 +60,16 @@ public class GameScreen extends Canvas {
 			}
 		});
 	}
-
 	public void paintComponent() {
 		GraphicsContext gc = this.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
+
 		for (IRenderable entity : RenderableHolder.getInstance().getEntities()) {
-			// System.out.println(entity.getZ());
 			if (entity.isVisible() && !entity.isDestroyed() ) {
 				entity.draw(gc);
 			}
 		}
 
-		// System.out.println("===============");
-		// System.out.println("===============");
 
 	}
 

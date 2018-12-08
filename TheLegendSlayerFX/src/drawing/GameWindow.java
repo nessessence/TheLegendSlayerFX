@@ -66,6 +66,7 @@ public class GameWindow extends Canvas{
 	public void drawGameWindow() {		
 		AnimationTimer animation = new AnimationTimer() {
 			public void handle(long now) {
+				
 				gameScreen.paintComponent();
 				RenderableHolder.getInstance().update();
 				InputUtility.updateInputState();

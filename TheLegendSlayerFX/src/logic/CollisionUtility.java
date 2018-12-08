@@ -21,15 +21,14 @@ public class CollisionUtility {
 //		
 //		return false;
 //	}
-	public static boolean checkCollisionsPlayer(Player player, CollidableEntity other){
+	public static void checkCollisionsPlayer(Player player, CollidableEntity other){
 	
 		if(other instanceof Monster){
+			System.out.println("Hitttttttt!!!!");
 			player.isHit();
-			return true;
 		}
 //		} else if(other instanceof Metal || other instanceof Pond){
 //			return true;
 //		}
-		return false;
 	}
 }

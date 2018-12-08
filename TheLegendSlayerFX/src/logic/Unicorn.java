@@ -9,10 +9,10 @@ public class Unicorn extends Monster {
 	}
 		@Override
 		public void setImage() {
-			this.top =  new Image(ClassLoader.getSystemResource("unicorn_dance.gif").toString()) ;
-			this.down = new Image(ClassLoader.getSystemResource("unicorn_dance.gif").toString()) ;
-			this.right = new Image(ClassLoader.getSystemResource("unicorn_dance.gif").toString()) ;
-			this.left = new Image(ClassLoader.getSystemResource("unicorn_dance.gif").toString()) ;
+			this.top =  new Image(ClassLoader.getSystemResource("unicorn_right.gif").toString()) ;
+			this.down = new Image(ClassLoader.getSystemResource("unicorn_left.gif").toString()) ;
+			this.right = new Image(ClassLoader.getSystemResource("unicorn_right.gif").toString()) ;
+			this.left = new Image(ClassLoader.getSystemResource("unicorn_left.gif").toString()) ;
 			this.startpic = this.down;
 		}
 
@@ -22,5 +22,6 @@ public class Unicorn extends Monster {
 			this.y = y;
 			this.health = 5;
 			this.speed = 3;
+			this.radius = 5 ;
 		}
 }

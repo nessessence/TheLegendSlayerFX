@@ -24,11 +24,11 @@ public class GameLogic {
 		RenderableHolder.getInstance().add(entity);
 	}
 	
-	public void logicUpdate(){
-		player.update();
-		
-//		if(!mine.isDestroyed() && player.collideWith(mine)){
-//			mine.onCollision(player);
-//		}
-	}
+//	public void logicUpdate(){
+//		player.update();
+//		
+////		if(!mine.isDestroyed() && player.collideWith(mine)){
+////			mine.onCollision(player);
+////		}
+//	}
 }

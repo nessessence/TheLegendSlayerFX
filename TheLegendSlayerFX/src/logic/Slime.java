@@ -24,6 +24,7 @@ public class Slime extends Monster {
 		this.y = y;
 		this.health = 1;
 		this.speed = 1;
+		this.radius = 5 ;
 
 	}
 

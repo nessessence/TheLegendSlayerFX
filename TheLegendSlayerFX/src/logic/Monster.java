@@ -15,7 +15,6 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     private int direction = 2;
     protected int health;
     protected int speed;
-    protected double x,y;
     private int dirTimer = 0, dirTimeInterval = 30;
 //    private Random rand = new Random();
  
