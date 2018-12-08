@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.media.AudioClip;
+import obstruct.Obstacle;
  
  
 public class Player extends CollidableEntity {
@@ -25,7 +26,7 @@ public class Player extends CollidableEntity {
     private Image down;
     private Random rand;
     private int move_count ;
-    private int speed = 3 ;
+    private int speed = 2 ;
     private int direction; // top->0,right->1,back->2,left->3
     private long lastShot = 0;
     public AudioClip scream =  new AudioClip(ClassLoader.getSystemResource("scream.mp3").toString());
@@ -35,10 +36,15 @@ public class Player extends CollidableEntity {
     private long lastSay = System.currentTimeMillis() - 5000 ;
     @Override
     public void draw(GraphicsContext gc) {
-        gc.drawImage(startpic, this.x, this.y);
+        gc.drawImage(startpic, this.getX(), this.getY());
+        System.out.println("x : "+this.getX() + " y : "+this.getY());
     }
     public Player(double x, double y) {
         //playSound();
+    	this.life = 5 ;
+    	this.setHeight(30);
+    	this.setWidth(30);
+    	this.z = 2 ;
     	this.radius = 10 ;
         this.x = x;
         this.y = y;
@@ -50,12 +56,12 @@ public class Player extends CollidableEntity {
         //for(int i = 0 ; i < 19 ; i++ ) soundURL.add("playAd"+Integer.toString(i+1)+".mp3") ;
         setPlayer();
         this.direction = 2;
-        RenderableHolder.setPlayer(this)
+        RenderableHolder.setPlayer(this)  
  ;//        for(int i = 0 ; i < soundURL.length ; i++) {
 //          sounds.add( new AudioClip(ClassLoader.getSystemResource(soundURL[i]).toString()));
 //        }
     }
-    public void gainHP(){
+    public void gainLife(){
         this.life += 1;
     }
     public void setMachineGunLevel(int x){
@@ -66,6 +72,13 @@ public class Player extends CollidableEntity {
     }
     public void setSpeed(int x){
        this.speed = x;
+    }
+    public void setScore(int score) {
+    	if(score <= 0) score = 0;
+    	this.score = score;
+    }
+    public int getScore() {
+    	return this.score;
     }
     public int getMahcineGunLevel() {
         return this.machinegunLevel;
@@ -80,16 +93,40 @@ public class Player extends CollidableEntity {
         this.startpic = down;
     }
     public void goUp() {
+    	MoveCalculate future = new MoveCalculate(this.getX(),this.getY()-this.getSpeed());
+    	RenderableHolder.setPlayer(this)  ;
+    	if(canGo(future)) return;
        this.setY(this.getY()-this.getSpeed());
+       this.setDirection(0);
+       startpic = top;
+       move_count += 1 ;
     }
     public void goDown() {
+    	MoveCalculate future = new MoveCalculate(this.getX(),this.getY()+this.getSpeed());
+    	RenderableHolder.setPlayer(this)  ;
+    	if(canGo(future)) return;
        this.setY(this.getY()+this.getSpeed());
+       this.setDirection(2);
+       startpic = down;
+       move_count += 1 ;
     }
     public void goRight() {
+    	MoveCalculate future = new MoveCalculate(this.getX()+this.getSpeed(),this.getY());
+    	RenderableHolder.setPlayer(this)  ;
+    	if(canGo(future)) return;
        this.setX(this.getX()+this.getSpeed());
+       startpic = right;
+       this.setDirection(1);
+       move_count += 1 ;
     }
     public void goLeft() {
+    	MoveCalculate future = new MoveCalculate(this.getX()-this.getSpeed(),this.getY());
+    	RenderableHolder.setPlayer(this)  ;
+    	if(canGo(future)) return;
        this.setX(this.getX()-this.getSpeed());
+       this.setDirection(3);
+       startpic = left;
+       move_count += 1 ;
     }
     public int getDirection() {
         return this.direction;
@@ -115,31 +152,30 @@ public class Player extends CollidableEntity {
     public double getY(){
         return this.y;
     }
+    public boolean canGo(MoveCalculate future) {
+    	for(Obstacle obstacle : RenderableHolder.getObstacles()) {
+    		if(obstacle.collideWith(future))
+    			if(CollisionUtility.checkCollisionsObstacle(obstacle , (CollidableEntity)RenderableHolder.getPlayer())) return true ;
+    	}
+    	return false;
+    }
     public void update() {
 //      if(System.currentTimeMillis() - lastSay > 10000 ) playSound(); lastSay = System.currentTimeMillis() ;
-        if (InputUtility.getKeyPressed(KeyCode.UP)) {
-            goUp();
-           
-            this.setDirection(0);
-            startpic = top;
-            move_count += 1 ;
+	     
+		if (InputUtility.getKeyPressed(KeyCode.UP)) {
+        	goUp();
         }
         if (InputUtility.getKeyPressed(KeyCode.LEFT)) {
             goLeft();
-            this.setDirection(3);
-            startpic = left;
-            move_count += 1 ;
+            
         } else if (InputUtility.getKeyPressed(KeyCode.RIGHT)) {
             goRight();
-            startpic = right;
-            this.setDirection(1);
-            move_count += 1 ;
+
         } else if (InputUtility.getKeyPressed(KeyCode.DOWN)) {
             goDown();
-            this.setDirection(2);
-            startpic = down;
-            move_count += 1 ;
+
         }
+	    
         if (InputUtility.getKeyPressed(KeyCode.SPACE)&&     (System.currentTimeMillis() - lastShot) > 200/machinegunLevel) {
             Bullet bullet = new Bullet(this.x,this.y, this.getDirection());
             lastShot =  System.currentTimeMillis() ;
@@ -196,10 +232,14 @@ public class Player extends CollidableEntity {
         this.level = level;
     }
    public void isHit() {
+	   System.out.println("isHit");
 	   scream.play();
-       this.life--;
-       this.setX(100);
-       this.setY(100);
+       RenderableHolder.getPlayer().life--;
+       RenderableHolder.getPlayer().setX(100);
+       RenderableHolder.getPlayer().setY(100);
+       System.out.println(this.x+" ," +RenderableHolder.getPlayer().getX() );
+
+       
        
    }
    }

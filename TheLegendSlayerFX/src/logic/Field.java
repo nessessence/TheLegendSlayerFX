@@ -3,20 +3,21 @@ package logic;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
+import obstruct.Castle;
 import sharedObject.IRenderable;
 import sharedObject.RenderableHolder;
 
 public class Field implements IRenderable {
 
-	private static int[][] field = { {0,0,0,8,0,0,6,6,6,6,0,0,4,0,0,0 },
+	private static int[][] field = { {0,0,0,0,0,0,6,6,6,6,0,0,0,0,0,0 },
 			   {0,0,0,0,0,0,6,6,6,6,1,1,0,0,0,0},
-			   {0,7,0,0,0,0,6,6,6,6,6,1,0,0,0,0},
+			   {0,0,0,0,0,0,6,6,6,6,6,1,0,0,0,0},
 			   {0,0,0,0,0,0,6,6,6,6,6,1,1,1,1,0},
-			   {0,0,0,0,0,0,6,6,6,2,0,0,0,6,1,0},
+			   {0,0,0,0,0,0,6,6,6,0,0,0,0,6,1,0},
 			   {0,0,0,8,0,0,0,0,0,0,0,0,0,6,6,0},
 			   {0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,0},
-			   {0,5,0,5,0,5,0,0,0,0,0,0,0,6,6,0},
-			   {0,3,0,0,0,0,0,0,0,0,0,0,6,6,6,0},
+			   {0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,0},
+			   {0,0,0,0,0,0,0,0,0,0,6,6,6,6,6,0},
 			   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
@@ -55,37 +56,66 @@ public class Field implements IRenderable {
         gc.drawImage(bgImg, 0, 0);
 		for (int x = 0; x < field[0].length; x++) {
             for (int y = 0; y < field.length; y++) {
-                
-//            	if(field[y][x] == 0) {	
-//            		 img = new WritableImage(RenderableHolder.mapSprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
-//                } else {
-                if(field[y][x] == 1 ) {
-                	 Image img = new WritableImage(RenderableHolder.deadTreeSprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
-                	 gc.drawImage(img,x*50,y*50);
-                }else if(field[y][x] == 2) {
-                	Image img = new WritableImage(RenderableHolder.pondSprite.getPixelReader(),getTileIndex(x,y)*50,0,210,200);
-                	gc.drawImage(img, x*50, y*50);
-                }
-                else if(field[y][x] == 3) {
-                	Image img = new Image(ClassLoader.getSystemResource("castle.gif").toString()) ;
-                	gc.drawImage(img, x*50, y*50);
-                }else if(field[y][x] == 4) {
-                	Image img = new Image(ClassLoader.getSystemResource("enemycastle.png").toString()) ;
-                	gc.drawImage(img, x*50, y*50);
-                }else if(field[y][x] == 5) {
-                	Image img = new WritableImage(RenderableHolder.barbewireSprite.getPixelReader(),getTileIndex(x,y)*50,0,86,50);
-                	gc.drawImage(img,x*50,y*50);
-                }else if(field[y][x] == 6) {
-                	Image img = new WritableImage(RenderableHolder.tree1Sprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
-                	gc.drawImage(img,x*50,y*50);
-                }else if(field[y][x] == 7){
-                	Image img = new Image(ClassLoader.getSystemResource("antena.png").toString()) ;
-                	gc.drawImage(img,x*50,y*50);
-                }else if(field[y][x] == 8) {
-                	Image img = new WritableImage(RenderableHolder.cannonSprite.getPixelReader(),getTileIndex(x,y)*50,0,100,100);
-                	gc.drawImage(img,x*50,y*50);
-                }
-//            
+//                
+////            	if(field[y][x] == 0) {	
+////            		 img = new WritableImage(RenderableHolder.mapSprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
+////                } else {
+//                if(field[y][x] == 1 ) {
+//                	 Image img = new WritableImage(RenderableHolder.deadTreeSprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
+//                	 gc.drawImage(img,x*50,y*50);
+//                }else if(field[y][x] == 2) {
+//                	Image img = new WritableImage(RenderableHolder.pondSprite.getPixelReader(),getTileIndex(x,y)*50,0,210,200);
+//                	gc.drawImage(img, x*50, y*50);
+//                }
+//                else if(field[y][x] == 3) {
+//                	Image img = new Image(ClassLoader.getSystemResource("castle.gif").toString()) ;
+//                	gc.drawImage(img, x*50, y*50);
+//                }else if(field[y][x] == 4) {
+//                	Image img = new Image(ClassLoader.getSystemResource("enemycastle.png").toString()) ;
+//                	gc.drawImage(img, x*50, y*50);
+//                }else if(field[y][x] == 5) {
+//                	Image img = new WritableImage(RenderableHolder.barbewireSprite.getPixelReader(),getTileIndex(x,y)*50,0,86,50);
+//                	gc.drawImage(img,x*50,y*50);
+//                }else if(field[y][x] == 6) {
+//                	Image img = new WritableImage(RenderableHolder.tree1Sprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
+//                	gc.drawImage(img,x*50,y*50);
+//                }else if(field[y][x] == 7){
+//                	Image img = new Image(ClassLoader.getSystemResource("antena.png").toString()) ;
+//                	gc.drawImage(img,x*50,y*50);
+//                }else if(field[y][x] == 8) {
+//                	Image img = new WritableImage(RenderableHolder.cannonSprite.getPixelReader(),getTileIndex(x,y)*50,0,100,100);
+//                	gc.drawImage(img,x*50,y*50);
+//                }
+////            
+            	
+               if(field[y][x] == 1 ) {
+               	 Image img = new WritableImage(RenderableHolder.deadTreeSprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
+               	 gc.drawImage(img,x*50,y*50);
+               }else if(field[y][x] == 2) {
+               	Image img = new WritableImage(RenderableHolder.pondSprite.getPixelReader(),getTileIndex(x,y)*50,0,210,200);
+               	gc.drawImage(img, x*50, y*50);
+               }
+               else if(field[y][x] == 3) {
+            	   Castle img = new Castle(x*50,y*50);
+            	   img.draw(gc);
+            	   
+               }else if(field[y][x] == 4) {
+               	Image img = new Image(ClassLoader.getSystemResource("enemycastle.png").toString()) ;
+               	gc.drawImage(img, x*50, y*50);
+               }else if(field[y][x] == 5) {
+               	Image img = new WritableImage(RenderableHolder.barbewireSprite.getPixelReader(),getTileIndex(x,y)*50,0,86,50);
+               	gc.drawImage(img,x*50,y*50);
+               }else if(field[y][x] == 6) {
+               	Image img = new WritableImage(RenderableHolder.tree1Sprite.getPixelReader(),getTileIndex(x,y)*50,0,50,50);
+               	gc.drawImage(img,x*50,y*50);
+               }else if(field[y][x] == 7){
+               	Image img = new Image(ClassLoader.getSystemResource("antena.png").toString()) ;
+               	gc.drawImage(img,x*50,y*50);
+               }else if(field[y][x] == 8) {
+               	Image img = new WritableImage(RenderableHolder.cannonSprite.getPixelReader(),getTileIndex(x,y)*50,0,100,100);
+               	gc.drawImage(img,x*50,y*50);
+               }
+            	
             
               
             }

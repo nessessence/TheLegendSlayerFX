@@ -4,10 +4,14 @@ import java.util.Random;
  
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import obstruct.Metal;
+import obstruct.Obstacle;
 import sharedObject.IRenderable;
+import sharedObject.RenderableHolder;
  
 public abstract class Monster extends CollidableEntity implements IRenderable{
-    protected Image top ;
+	protected int score ; 
+	protected Image top ;
     protected Image left;
     protected Image right;
     protected Image down;
@@ -16,10 +20,20 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     protected int health;
     protected int speed;
     private int dirTimer = 0, dirTimeInterval = 30;
+    
+    
+   
 //    private Random rand = new Random();
  
-    public abstract void setImage();
-    public abstract void setInfo(double x,double y);
+    public Monster(double x , double y ) {
+    	this.setX(x);
+    	this.setY(y);
+    	this.setZ(2);
+    }
+   
+
+	public abstract void setImage();
+    
     public void randDir(){
         Random rand = new Random();
         this.direction = rand.nextInt(4);
@@ -55,20 +69,57 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     public int getSpeed(){
         return this.speed;
     }
+    public int getScore() {
+    	return this.score;
+    }
+    public boolean canGo(MoveCalculate future) {
+    	for(Obstacle obstacle : RenderableHolder.getObstacles()) {
+    		if(obstacle.collideWith(future) && obstacle instanceof Metal)
+    			if(CollisionUtility.checkCollisionsObstacle(obstacle , this)) return true ;
+    	}
+    	return false;
+    }
+    public void goUp() {
+    	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed());
+    	if(canGo(future)) return;
+       this.setY(this.getY()-this.getSpeed());
+   
+       startpic = top;
+      
+    }
+    public void goDown() {
+    	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed());
+    	if(canGo(future)) return;
+       this.setY(this.getY()+this.getSpeed());
+       
+       startpic = down;
+  
+    }
+    public void goRight() {
+    	MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.y);
+    	if(canGo(future)) return;
+       this.setX(this.getX()+this.getSpeed());
+       startpic = right;
+    }
+     
+    public void goLeft() {
+    	MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.y);
+    	if(canGo(future)) return;
+       this.setX(this.getX()-this.getSpeed());
+   
+       startpic = left;
+  
+    }
     public void move(){
        
         if(direction == 0){
-            startpic = top;
-            this.setY(this.getY()-this.getSpeed());
+        	goUp();
         }else if(direction == 1) {
-            startpic = right;
-            this.setX(this.getX()+this.getSpeed());
+            goRight();
         }else if(direction == 2){
-            startpic = down;
-            this.setY(this.getY()+this.getSpeed());
+            goDown();
         }else if(direction == 3){
-            startpic = left;
-            this.setX(this.getX()-this.getSpeed());
+            goLeft();
         }
         //System.out.println(" x : y " + x+":"+y);
     }
@@ -79,12 +130,16 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
           gc.drawImage(this.startpic, this.x,this.y);      
     }
  
-    public void isHit() {
-    	if(--this.health <= 0) isDie();
+    public void takeDamage() {
+    	if(--this.health <= 0) die();
     	
     }
-    public void isDie() {
+    public void die() {
     	this.destroyed = true;
+    	Player player = RenderableHolder.getPlayer();
+    	player.setScore(player.getScore()+this.getScore());
+    	System.out.println("************************************ score: "+player.getScore());
+    	
     }
  
  

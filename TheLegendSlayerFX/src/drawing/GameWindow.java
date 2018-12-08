@@ -47,6 +47,9 @@ public class GameWindow extends Canvas{
 	private Scene scene;
 	private GameLogic logic;
 	private GameScreen gameScreen;
+	private AnimationTimer animation;
+	private static int lastScore;
+
 	public GameWindow(Stage primaryStage) {
 		setWidth(800);
 		setHeight(600);
@@ -64,15 +67,25 @@ public class GameWindow extends Canvas{
 //		requestFocus();
 	}
 	public void drawGameWindow() {		
-		AnimationTimer animation = new AnimationTimer() {
+		this.animation = new AnimationTimer() {
 			public void handle(long now) {
-				
+				logic.logicUpdate();
 				gameScreen.paintComponent();
 				RenderableHolder.getInstance().update();
 				InputUtility.updateInputState();
+				isGameEnd();
 			}
 		};
 		animation.start();	
+	}
+	public void isGameEnd() {
+		if(RenderableHolder.getPlayer().getLife() <= 0 ) {
+			this.lastScore = RenderableHolder.getPlayer().getScore();
+			RenderableHolder.getInstance().clearList(); 
+			animation.stop();
+			GameOver.startAnimation(gc);
+			GameOver.setFinished(false);
+		}
 	}
 	
 	

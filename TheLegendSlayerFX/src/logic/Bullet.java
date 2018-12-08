@@ -1,9 +1,12 @@
 package logic;
 
 import sharedObject.IRenderable;
+import sharedObject.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
+import obstruct.Metal;
+import obstruct.Obstacle;
 
 public class Bullet extends CollidableEntity implements IRenderable{
   
@@ -14,7 +17,8 @@ public class Bullet extends CollidableEntity implements IRenderable{
    private Image right;
    private Image left;
    public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString()); 
-   private boolean isEnemy = false;
+   private int speed = 10;
+   
  
    public Bullet(double x, double y ,int direction ) {
        this.x = x;
@@ -25,33 +29,72 @@ public class Bullet extends CollidableEntity implements IRenderable{
        
    }
    public void setBulletPic(int direction) {
-       if(isEnemy) {
-//         this.bulletpic = new Image("bulletEnemy.png");
-       } else {
-    	   this.top = new Image(ClassLoader.getSystemResource("Bullet_top.png").toString()) ;
-           this.down = new Image(ClassLoader.getSystemResource("Bullet_down.png").toString()) ;
-           this.right = new Image(ClassLoader.getSystemResource("Bullet_right.png").toString()) ;
-           this.left = new Image(ClassLoader.getSystemResource("Bullet_left.png").toString()) ;
-           if(direction == 0) this.bulletpic = top ;
-           else if (direction == 1) this.bulletpic = right ;
-           else if (direction == 2) this.bulletpic = down;
-           else if (direction == 3) this.bulletpic = left ;
-       }
+  
+	   this.top = new Image(ClassLoader.getSystemResource("Bullet_top.png").toString()) ;
+       this.down = new Image(ClassLoader.getSystemResource("Bullet_down.png").toString()) ;
+       this.right = new Image(ClassLoader.getSystemResource("Bullet_right.png").toString()) ;
+       this.left = new Image(ClassLoader.getSystemResource("Bullet_left.png").toString()) ;
+       if(direction == 0) this.bulletpic = top ;
+       else if (direction == 1) this.bulletpic = right ;
+       else if (direction == 2) this.bulletpic = down;
+       else if (direction == 3) this.bulletpic = left ;
+       
       
    }
    @Override
    public void draw(GraphicsContext gc) {
        gc.drawImage(bulletpic , this.x, this.y);
    }
+   public boolean canGo(MoveCalculate future) {
+   	for(Obstacle obstacle : RenderableHolder.getObstacles()) {
+   		if(obstacle.collideWith(future) && obstacle instanceof Metal)
+   			if(CollisionUtility.checkCollisionsMetal(obstacle , this)) return true ;
+   	}
+   	return false;
+   }
+   public int getSpeed() {
+	   return this.speed;
+   }
+   public void goUp() {
+   	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed());
+   	if(canGo(future)) return;
+      this.setY(this.getY()-this.getSpeed());
+  
+      bulletpic = top;
+     
+   }
+   public void goDown() {
+   	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed());
+   	if(canGo(future)) return;
+      this.setY(this.getY()+this.getSpeed());
+      
+      bulletpic = down;
+ 
+   }
+   public void goRight() {
+   	MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.y);
+   	if(canGo(future)) return;
+      this.setX(this.getX()+this.getSpeed());
+      bulletpic = right;
+   }
+    
+   public void goLeft() {
+   	MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.y);
+   	if(canGo(future)) return;
+      this.setX(this.getX()-this.getSpeed());
+  
+      bulletpic = left;
+ 
+   }
    public void update() {
        if(this.direction == 0) {
-           this.y -= 10;
+           goUp();
        } else if (this.direction == 1) {
-           this.x += 10;
+          goRight();
        } else if (direction == 2) {
-           this.y += 10;
+          goDown();
        } else if (direction == 3) {
-           this.x -= 10;
+           goLeft();
        }
    }
    public void playSound() {

@@ -4,8 +4,15 @@ import javafx.scene.image.Image;
 
 public class Unicorn extends Monster {
 	public Unicorn(double x, double y) {
+		super(x,y);
 		setImage();
-		setInfo(x,y);
+		this.health = 5;
+		this.speed = 3;
+		this.radius = 20 ;
+		this.score = 50;
+		this.setWidth(60);
+		this.setHeight(40);
+		
 	}
 		@Override
 		public void setImage() {
@@ -16,12 +23,5 @@ public class Unicorn extends Monster {
 			this.startpic = this.down;
 		}
 
-		@Override
-		public void setInfo(double x, double y) {
-			this.x = x;
-			this.y = y;
-			this.health = 5;
-			this.speed = 3;
-			this.radius = 5 ;
-		}
+		
 }

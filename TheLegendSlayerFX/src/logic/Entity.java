@@ -1,13 +1,30 @@
 package logic;
 
-import javafx.scene.shape.Rectangle;
+
 import sharedObject.IRenderable;
 
 public abstract class Entity implements IRenderable{
-
+	protected int width , height ;
 	protected double x,y;
 	protected int z;
 	protected boolean visible,destroyed;
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+
 	
 	protected Entity(){
 		visible = true;
@@ -24,9 +41,13 @@ public abstract class Entity implements IRenderable{
 		return visible;
 	}
 	
-	@Override
-	public int getZ(){
+
+	public int getZ() {
 		return z;
+	}
+
+	public void setZ(int z) {
+		this.z = z;
 	}
 
 	public double getX() {

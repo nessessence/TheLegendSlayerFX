@@ -4,8 +4,15 @@ import javafx.scene.image.Image;
 
 public class God extends Monster {
 	public God(double x, double y) {
+		super(x,y);
 		setImage();
-		setInfo(x,y);
+		this.health = 10;
+		this.speed = 5;
+		this.radius = 40 ;
+		this.score = 200;
+		this.setWidth(80);
+		this.setHeight(90);
+		
 	}
 		@Override
 		public void setImage() {
@@ -16,12 +23,5 @@ public class God extends Monster {
 			this.startpic = this.down;
 		}
 
-		@Override
-		public void setInfo(double x, double y) {
-			this.x = x;
-			this.y = y;
-			this.health = 10;
-			this.speed = 5;
-			this.radius = 40 ;
-		}
+		
 }

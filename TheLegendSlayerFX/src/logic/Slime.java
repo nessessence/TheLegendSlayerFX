@@ -4,8 +4,13 @@ import javafx.scene.image.Image;
 
 public class Slime extends Monster {
 	public Slime(double x, double y) {
+		super(x,y);
 		setImage();
-		setInfo(x,y);
+		this.health = 1;
+		this.speed = 1;
+		this.radius = 10 ;
+		this.score = 10;
+		
 	}
 
 	@Override
@@ -18,14 +23,6 @@ public class Slime extends Monster {
 		}
 
 
-	@Override
-	public void setInfo(double x, double y) {
-		this.x = x;
-		this.y = y;
-		this.health = 1;
-		this.speed = 1;
-		this.radius = 5 ;
-
-	}
+	
 
 }

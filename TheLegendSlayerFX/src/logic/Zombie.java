@@ -4,9 +4,14 @@ import javafx.scene.image.Image;
 
 public class Zombie extends Monster {
 	public Zombie(double x, double y) {
-		System.out.println("tetst");
+		super(x,y);
 		setImage();
-		setInfo(x,y);
+		this.health = 2;
+		this.speed = 1;
+		this.radius = 15;
+		this.score = 20;
+		this.setHeight(32);
+		this.setWidth(32);
 	}
 	@Override
 	public void setImage() {
@@ -17,13 +22,6 @@ public class Zombie extends Monster {
 		this.startpic = this.down;
 	}
 
-	@Override
-	public void setInfo(double x, double y) {
-		this.x = x;
-		this.y = y;
-		this.health = 1;
-		this.speed = 2;
-		this.radius = 5 ;
-	}
+	
 
 }
