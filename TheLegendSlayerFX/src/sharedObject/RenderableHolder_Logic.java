@@ -24,13 +24,13 @@ import logic.Entity;
 public class RenderableHolder_Logic {
 	private static final RenderableHolder_Logic instance = new RenderableHolder_Logic();
 	private static ArrayList<Obstacle> obstacles;
-	public static long time = 0;
-	public static long start_time;
-	public static int GenRate;
-	public static Player player;
-	public static Field field;
+	private static long time = 0;
+	private static long start_time;
+	private static int GenRate;
 	private List<IRenderable> entities;
 	private Comparator<IRenderable> comparator;
+	public static Player player;
+	public static Field field;
 	public static Image mapSprite;
 	public static Image castlePlayerSprite;
 	public static Image pondSprite;
@@ -41,6 +41,20 @@ public class RenderableHolder_Logic {
 	public static AudioClip explosionSound;
 	static {
 		loadResource();
+	}
+	public static long getTime() {
+		return time;
+	}
+
+	public static void setTime(long time) {
+		RenderableHolder_Logic.time = time;
+	}
+	public static long getStart_time() {
+		return start_time;
+	}
+
+	public static void setStart_time(long start_time) {
+		RenderableHolder_Logic.start_time = start_time;
 	}
 
 	public static ArrayList<Obstacle> getObstacles() {

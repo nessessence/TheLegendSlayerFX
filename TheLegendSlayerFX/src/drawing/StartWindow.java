@@ -114,8 +114,8 @@ public class StartWindow {
 					if (numberselected == 0) {
 						GameWindow game = new GameWindow(primaryStage);
 						game.drawGameWindow();
-						RenderableHolder_Logic.time = System.currentTimeMillis();
-						RenderableHolder_Logic.start_time = System.currentTimeMillis();
+						RenderableHolder_Logic.setTime(System.currentTimeMillis()); 
+						RenderableHolder_Logic.setStart_time(System.currentTimeMillis()); 
 						spaceanimation.stop();
 
 					}
