@@ -1,10 +1,8 @@
 package logic;
 
-import sharedObject.IRenderable;
+
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import input.InputUtility;
 import sharedObject.RenderableHolder_Logic;
 import javafx.scene.canvas.GraphicsContext;
@@ -14,11 +12,9 @@ import javafx.scene.media.AudioClip;
 import obstruct.Obstacle;
 
 public class Player extends CollidableEntity {
-	private int machinegunLevel = 1;
 	private int life;
 	public Image startpic;
 	private int score = 0;
-	private int level = 1;
 	private Image left;
 	private Image right;
 	private Image top;
@@ -66,14 +62,6 @@ public class Player extends CollidableEntity {
 		this.life += 1;
 	}
 
-	public void setMachineGunLevel(int x) {
-		if (x >= 0)
-			x = 0;
-		if (this.getMahcineGunLevel() + x <= 2) {
-			this.machinegunLevel = this.getMahcineGunLevel() + x;
-		}
-	}
-
 	public void setSpeed(int x) {
 		this.speed = x;
 	}
@@ -88,9 +76,6 @@ public class Player extends CollidableEntity {
 		return this.score;
 	}
 
-	public int getMahcineGunLevel() {
-		return this.machinegunLevel;
-	}
 
 	public int getSpeed() {
 		return this.speed;
@@ -188,7 +173,6 @@ public class Player extends CollidableEntity {
 	}
 
 	public void update() {
-//      if(System.currentTimeMillis() - lastSay > 10000 ) playSound(); lastSay = System.currentTimeMillis() ;
 
 		if (InputUtility.getKeyPressed(KeyCode.UP)) {
 			goUp();
@@ -205,25 +189,12 @@ public class Player extends CollidableEntity {
 		}
 
 		if (InputUtility.getKeyPressed(KeyCode.SPACE)
-				&& (System.currentTimeMillis() - lastShot) > 200 / machinegunLevel) {
+				&& (System.currentTimeMillis() - lastShot) > 200 ) {
 			Bullet bullet = new Bullet(this.x, this.y, this.getDirection());
 			lastShot = System.currentTimeMillis();
 			RenderableHolder_Logic.getInstance().add(bullet);
 
 			move_count += 1;
-		}
-		if (InputUtility.getKeyPressed(KeyCode.G)) {
-			Zombie zombie = new Zombie(300, 300);
-			Unicorn unicorn = new Unicorn(70, 70);
-			Slime slime = new Slime(600, 400);
-			God god = new God(200, 200);
-			Dragon dragon = new Dragon(500, 500);
-
-			RenderableHolder_Logic.getInstance().add(zombie);
-			RenderableHolder_Logic.getInstance().add(unicorn);
-			RenderableHolder_Logic.getInstance().add(slime);
-			RenderableHolder_Logic.getInstance().add(god);
-			RenderableHolder_Logic.getInstance().add(dragon);
 		}
 
 		if (InputUtility.isLeftClickTriggered()) {
@@ -255,14 +226,6 @@ public class Player extends CollidableEntity {
 
 	public void setLife(int life) {
 		this.life = life;
-	}
-
-	public int getLevel() {
-		return this.level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
 	}
 
 	public void isHit() {
