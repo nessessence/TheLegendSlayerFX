@@ -15,6 +15,7 @@ import javafx.scene.input.MouseButton;
 
 public class GameScreen extends Canvas {
 	private final Font SPACE_FONT = Font.loadFont(ClassLoader.getSystemResourceAsStream("CourierNew.ttf"), 15);
+
 	public GameScreen(double width, double height) {
 		super(width, height);
 		this.setVisible(true);
@@ -62,26 +63,19 @@ public class GameScreen extends Canvas {
 			}
 		});
 	}
+
 	public void paintComponent() {
 		GraphicsContext gc = this.getGraphicsContext2D();
 		gc.setFill(Color.WHITE);
-		
+
 		for (IRenderable entity : RenderableHolder.getInstance().getEntities()) {
-//			if(entity instanceof Player) {
-//				System.out.println("+++++++++++++++");
-//				if(entity.isVisible()) System.out.println("vis");
-//				if(!entity.isDestroyed()) System.out.println("des");
-//				
-//			}
-			if (entity.isVisible() && !entity.isDestroyed() ) {
+			if (!entity.isDestroyed()) {
 				entity.draw(gc);
 			}
 		}
 		gc.setFont(SPACE_FONT);
-		gc.fillText("score:"+Integer.toString(RenderableHolder.getPlayer().getScore()),30,15 );
-		gc.fillText("life:"+Integer.toString(RenderableHolder.getPlayer().getLife()),30,33 );
-		
-
+		gc.fillText("score:" + Integer.toString(RenderableHolder.getPlayer().getScore()), 30, 15);
+		gc.fillText("life:" + Integer.toString(RenderableHolder.getPlayer().getLife()), 30, 33);
 
 	}
 

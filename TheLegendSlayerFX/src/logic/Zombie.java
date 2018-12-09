@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 public class Zombie extends Monster {
 	public Zombie(double x, double y) {
-		super(x,y);
+		super(x, y);
 		setImage();
 		this.health = 2;
 		this.speed = 1;
@@ -13,6 +13,7 @@ public class Zombie extends Monster {
 		this.setHeight(32);
 		this.setWidth(32);
 	}
+
 	@Override
 	public void setImage() {
 		this.top = new Image("zombie_dance.gif");
@@ -21,7 +22,5 @@ public class Zombie extends Monster {
 		this.left = new Image("zombie_dance.gif");
 		this.startpic = this.down;
 	}
-
-	
 
 }
