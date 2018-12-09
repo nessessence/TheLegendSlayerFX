@@ -4,19 +4,20 @@ import javafx.scene.image.Image;
 import logic.CollidableEntity;
 import sharedObject.IRenderable;
 
-public abstract class Obstacle extends CollidableEntity{
+public class Obstacle extends CollidableEntity{
 	protected Image pic;
 	public Obstacle(double x,double y){
 		this.setX(x);
 		this.setY(y);
 		
 	}
-	public abstract void setImage(String img );
-	
+	public  void setImage(String img ) {
+		this.pic = new Image(ClassLoader.getSystemResource(img).toString());
+	}
 	@Override 
 	public void draw(GraphicsContext gc){
 		gc.drawImage(pic,this.getX(),this.getY());
 	}
-
+     
 
 }

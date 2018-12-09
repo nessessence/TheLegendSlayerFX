@@ -98,15 +98,15 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future))
 				if (CollisionUtility.checkCollisionsObstacle(obstacle, this))
-					return true;
+					return false;
 
 		}
-		return false;
+		return true;
 	}
 
 	public void goUp() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setY(this.getY() - this.getSpeed());
 		this.setDirection(0);
@@ -117,7 +117,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 
 	public void goDown() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setY(this.getY() + this.getSpeed());
 		this.setDirection(2);
@@ -128,7 +128,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 
 	public void goRight() {
 		MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.getY(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setX(this.getX() + this.getSpeed());
 		startpic = right;
@@ -137,7 +137,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 
 	public void goLeft() {
 		MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.getY(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setX(this.getX() - this.getSpeed());
 		this.setDirection(3);

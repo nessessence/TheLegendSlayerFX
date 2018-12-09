@@ -107,7 +107,7 @@ public class Player extends CollidableEntity {
 	public void goUp() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed(), this);
 		RenderableHolder_Logic.setPlayer(this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setY(this.getY() - this.getSpeed());
 		this.setDirection(0);
@@ -118,7 +118,7 @@ public class Player extends CollidableEntity {
 	public void goDown() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed(), this);
 		RenderableHolder_Logic.setPlayer(this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setY(this.getY() + this.getSpeed());
 		this.setDirection(2);
@@ -129,7 +129,7 @@ public class Player extends CollidableEntity {
 	public void goRight() {
 		MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.getY(), this);
 		RenderableHolder_Logic.setPlayer(this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setX(this.getX() + this.getSpeed());
 		startpic = right;
@@ -140,7 +140,7 @@ public class Player extends CollidableEntity {
 	public void goLeft() {
 		MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.getY(), this);
 		RenderableHolder_Logic.setPlayer(this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setX(this.getX() - this.getSpeed());
 		this.setDirection(3);
@@ -182,9 +182,9 @@ public class Player extends CollidableEntity {
 		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future))
 				if (CollisionUtility.checkCollisionsObstacle(obstacle, (CollidableEntity) RenderableHolder_Logic.getPlayer()))
-					return true;
+					return false;
 		}
-		return false;
+		return true;
 	}
 
 	public void update() {

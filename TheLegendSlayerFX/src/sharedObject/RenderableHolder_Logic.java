@@ -38,7 +38,6 @@ public class RenderableHolder_Logic {
 	public static Image deadTreeSprite;
 	public static Image barbewireSprite;
 	public static Image cannonSprite;
-	public static AudioClip explosionSound;
 	static {
 		loadResource();
 	}
@@ -98,7 +97,7 @@ public class RenderableHolder_Logic {
 		RenderableHolder_Logic.player = player;
 	}
 
-	public static void loadResource() {
+	private static void loadResource() {
 		cannonSprite = new Image(ClassLoader.getSystemResource("cannon.png").toString());
 		barbewireSprite = new Image(ClassLoader.getSystemResource("barbewire.png").toString());
 		deadTreeSprite = new Image(ClassLoader.getSystemResource("deadtree.png").toString());
@@ -106,7 +105,6 @@ public class RenderableHolder_Logic {
 		castlePlayerSprite = new Image(ClassLoader.getSystemResource("castle.gif").toString());
 		tree1Sprite = new Image(ClassLoader.getSystemResource("tree1.png").toString());
 		mapSprite = new Image(ClassLoader.getSystemResource("brown.png").toString());
-		explosionSound = new AudioClip(ClassLoader.getSystemResource("Explosion.wav").toString());
 	}
 
 	public void add(IRenderable entity) {
@@ -115,7 +113,7 @@ public class RenderableHolder_Logic {
 		Collections.sort(entities, comparator);
 	}
 
-	public void monsterGen() {
+	private void monsterGen() {
 		if (System.currentTimeMillis() - time > 10000 - GenRate) {
 			GenRate += 10;
 			System.out.println("Monster generated !!,GenRate:" + GenRate);

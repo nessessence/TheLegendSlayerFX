@@ -1,6 +1,6 @@
 package obstruct;
 
-import javafx.scene.image.Image;
+
 
 public class Castle extends Metal{
 	public Castle(double x, double y){

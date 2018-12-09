@@ -1,6 +1,6 @@
 package obstruct;
 
-import javafx.scene.image.Image;
+
 
 public class EnemyCastle extends Metal{
 	public EnemyCastle(double x, double y){
