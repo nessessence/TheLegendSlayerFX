@@ -40,7 +40,7 @@ public class Player extends CollidableEntity {
     }
     public Player(double x, double y) {
         //playSound();
-    	this.life = 1;
+    	this.life = 10;
     	this.setHeight(30);
     	this.setWidth(30);
     	this.z = 2 ;
@@ -92,7 +92,7 @@ public class Player extends CollidableEntity {
         this.startpic = down;
     }
     public void goUp() {
-    	MoveCalculate future = new MoveCalculate(this.getX(),this.getY()-this.getSpeed());
+    	MoveCalculate future = new MoveCalculate(this.getX(),this.getY()-this.getSpeed(),this);
     	RenderableHolder.setPlayer(this)  ;
     	if(canGo(future)) return;
        this.setY(this.getY()-this.getSpeed());
@@ -101,7 +101,7 @@ public class Player extends CollidableEntity {
        move_count += 1 ;
     }
     public void goDown() {
-    	MoveCalculate future = new MoveCalculate(this.getX(),this.getY()+this.getSpeed());
+    	MoveCalculate future = new MoveCalculate(this.getX(),this.getY()+this.getSpeed(),this);
     	RenderableHolder.setPlayer(this)  ;
     	if(canGo(future)) return;
        this.setY(this.getY()+this.getSpeed());
@@ -110,7 +110,7 @@ public class Player extends CollidableEntity {
        move_count += 1 ;
     }
     public void goRight() {
-    	MoveCalculate future = new MoveCalculate(this.getX()+this.getSpeed(),this.getY());
+    	MoveCalculate future = new MoveCalculate(this.getX()+this.getSpeed(),this.getY(),this);
     	RenderableHolder.setPlayer(this)  ;
     	if(canGo(future)) return;
        this.setX(this.getX()+this.getSpeed());
@@ -119,7 +119,7 @@ public class Player extends CollidableEntity {
        move_count += 1 ;
     }
     public void goLeft() {
-    	MoveCalculate future = new MoveCalculate(this.getX()-this.getSpeed(),this.getY());
+    	MoveCalculate future = new MoveCalculate(this.getX()-this.getSpeed(),this.getY(),this);
     	RenderableHolder.setPlayer(this)  ;
     	if(canGo(future)) return;
        this.setX(this.getX()-this.getSpeed());

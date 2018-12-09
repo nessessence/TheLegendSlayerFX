@@ -23,12 +23,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
  
-public class GameisOver extends Application{
+public class GameisOver extends Application{   
     private Canvas canvas;
     private GraphicsContext gc;
-    private Image background = new Image("gameover.png");
+    private Image background = new Image(ClassLoader.getSystemResource("GameOver_new.gif").toString()) ;
     private int totalScore;
     private Stage primaryStage;
+    private final Font SPACE_FONT = Font.loadFont(ClassLoader.getSystemResourceAsStream("CourierNew.ttf"), 30);
    
     public GameisOver(int totalScore) {
         this.totalScore = totalScore;
@@ -60,9 +61,9 @@ public class GameisOver extends Application{
     }
     public void draw(GraphicsContext gc,int totalScore) {
         gc.drawImage(background, 0, 0);
-        gc.setFill(Color.WHITE);
-        gc.setFont(new Font(32));
-        gc.fillText("SCORE: "+ totalScore, 500, 300);
+        gc.setFill(Color.DARKGOLDENROD);
+        gc.setFont(SPACE_FONT);
+        gc.fillText("SCORE: "+ totalScore, 497, 320);
        
     }
   

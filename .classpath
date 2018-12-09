@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="TheLegendSlayerFX/src"/>
+	<classpathentry kind="src" path="TheLegendSlayerFX/font"/>
+	<classpathentry kind="src" path="TheLegendSlayerFX/res"/>
+	<classpathentry kind="src" path="TheLegendSlayerFX/audio"/>
 	<classpathentry kind="lib" path="Material_CODE/JAVA_FX_TankGame/run.jar"/>
 	<classpathentry kind="lib" path="Material_CODE/JAVA_FX_TankGame/TestJar/run.jar"/>
 	<classpathentry kind="lib" path="TheLegendSlayerFX/run.jar"/>

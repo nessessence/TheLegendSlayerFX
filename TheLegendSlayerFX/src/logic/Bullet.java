@@ -19,6 +19,7 @@ public class Bullet extends CollidableEntity implements IRenderable{
    public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString());   
    private int speed = 10;
    
+   
  
    public Bullet(double x, double y ,int direction ) {
        this.x = x;
@@ -26,6 +27,7 @@ public class Bullet extends CollidableEntity implements IRenderable{
        this.direction = direction;
        setBulletPic(direction);
        playSound() ;
+       this.setRadius(15);
        
    }
    public Bullet(double x, double y ,int direction , AudioClip soundshot ) {
@@ -35,6 +37,7 @@ public class Bullet extends CollidableEntity implements IRenderable{
        setBulletPic(direction);
        this.soundshot = soundshot ;
        playSound() ;
+       this.setRadius(20);
        
    }
    public void setBulletPic(int direction) {
@@ -65,7 +68,7 @@ public class Bullet extends CollidableEntity implements IRenderable{
 	   return this.speed;
    }
    public void goUp() {
-   	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed());
+   	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed(),this);
    	if(canGo(future)) return;
       this.setY(this.getY()-this.getSpeed());
   
@@ -73,7 +76,7 @@ public class Bullet extends CollidableEntity implements IRenderable{
      
    }
    public void goDown() {
-   	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed());
+   	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed(),this);
    	if(canGo(future)) return;
       this.setY(this.getY()+this.getSpeed());
       
@@ -81,14 +84,14 @@ public class Bullet extends CollidableEntity implements IRenderable{
  
    }
    public void goRight() {
-   	MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.y);
+   	MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.getY(),this);
    	if(canGo(future)) return;
       this.setX(this.getX()+this.getSpeed());
       bulletpic = right;
    }
     
    public void goLeft() {
-   	MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.y);
+   	MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.getY(),this);
    	if(canGo(future)) return;
       this.setX(this.getX()-this.getSpeed());
   
