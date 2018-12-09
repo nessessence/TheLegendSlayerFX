@@ -6,7 +6,7 @@ public abstract class Entity implements IRenderable {
 	protected int width, height;
 	protected double x, y;
 	protected int z;
-	protected boolean destroyed;
+	protected boolean destroyed = false ;
 
 	public int getWidth() {
 		return width;
@@ -22,10 +22,6 @@ public abstract class Entity implements IRenderable {
 
 	public void setHeight(int height) {
 		this.height = height;
-	}
-
-	protected Entity() {
-		destroyed = false;
 	}
 
 	@Override
