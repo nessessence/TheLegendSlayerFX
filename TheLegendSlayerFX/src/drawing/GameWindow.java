@@ -12,7 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import logic.Field;
-import logic.GameLogic;
+import logic.InitializeGame;
 import logic.Player;
 import sharedObject.RenderableHolder;
 
@@ -20,7 +20,7 @@ public class GameWindow extends Canvas{
 	private Stage primaryStage;
 	private GraphicsContext gc;
 	private Scene scene;
-	private GameLogic logic;
+	private InitializeGame logic;
 	private GameScreen gameScreen;
 	private AnimationTimer animation;
 
@@ -34,7 +34,7 @@ public class GameWindow extends Canvas{
 		scene = new Scene(s);
 		this.primaryStage.setScene(scene);
 		this.primaryStage.setTitle("The Legend Slayer");
-		logic = new GameLogic();
+		logic = new InitializeGame();
 		gameScreen = new GameScreen(800, 600);
 		s.getChildren().add(gameScreen);
 		gameScreen.requestFocus();

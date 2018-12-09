@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="false" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="logic.God" project="TheLegendSlayer" file="/TheLegendSlayer/src/logic/God.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="121" x="1333" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="Main" project="TheLegendSlayer" file="/TheLegendSlayer/src/Main.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="113" x="316" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="logic.CollidableEntity" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/CollidableEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="197" x="1563" y="543"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="drawing.GameScreen" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/drawing/GameScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="164" x="469" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="logic.Field" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Field.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="164" x="913" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="obstruct.EnemyCastle" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/EnemyCastle.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="163" x="1661" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="logic.Bullet" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Bullet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="423" width="189" x="1334" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="sharedObject.RenderableHolder" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/sharedObject/RenderableHolder.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="621" width="221" x="673" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="logic.Player" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="909" width="177" x="1117" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="drawing.GameWindow" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/drawing/GameWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="156" x="934" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="logic.MoveCalculate" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/MoveCalculate.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="245" x="1563" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="logic.InitializeGame" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/InitializeGame.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="190" x="1130" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="logic.Zombie" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Zombie.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="136" x="1494" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="drawing.GameisOver" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/drawing/GameisOver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="178" x="1533" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="logic.CollisionUtility" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/CollisionUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="309" x="1751" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="logic.Unicorn" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Unicorn.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="138" x="1670" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="obstruct.Metal" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Metal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="157" x="2195" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="input.InputUtility" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/input/InputUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="216" x="2100" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="logic.Slime" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Slime.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="126" x="1848" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="obstruct.Barbewire" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Barbewire.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="152" x="1864" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="obstruct.Castle" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Castle.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="131" x="2056" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="logic.Dragon" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Dragon.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="141" x="2014" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="obstruct.Cannon" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Cannon.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="138" x="2227" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="logic.Monster" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Monster.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="675" width="177" x="1848" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="obstruct.Antena" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Antena.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="136" x="2405" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="logic.Fireball" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Fireball.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="149" x="1144" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="obstruct.Pond" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Pond.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="128" x="2392" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="obstruct.Obstacle" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/obstruct/Obstacle.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="164" x="2195" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="29" language="java" name="sharedObject.IRenderable" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/sharedObject/IRenderable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="164" x="913" y="1685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="30" language="java" name="drawing.StartWindow" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/drawing/StartWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="603" width="185" x="2356" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="logic.Entity" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/logic/Entity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="133" x="1360" y="-118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <realization id="41">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <realization id="47">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <realization id="49">    
+    <bendpoint x="882" y="543"/>    
+    <bendpoint x="882" y="736"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <realization id="53">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

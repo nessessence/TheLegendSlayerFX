@@ -6,11 +6,11 @@ import java.util.List;
 import obstruct.*;
 import sharedObject.RenderableHolder;
 
-public class GameLogic {
+public class InitializeGame {
 	private List<Entity> gameObjectContainer;
 	private Player player;
 
-	public GameLogic() {
+	public InitializeGame() {
 		this.gameObjectContainer = new ArrayList<Entity>();
 		System.out.println("new field");
 		Field field = new Field();
@@ -31,6 +31,11 @@ public class GameLogic {
 		bar4.setRadius(15);
 		Barbewire bar5 = new Barbewire(295, 435);
 		bar5.setRadius(15);
+		Slime slime1 = new Slime(400, 70);
+		Slime slime2 = new Slime(300, 80);
+		Zombie zombie = new Zombie(550, 90);
+		RenderableHolder.getInstance().add(slime1);
+		RenderableHolder.getInstance().add(slime2);
 
 		RenderableHolder.getObstacles().add(antena);
 		RenderableHolder.getInstance().add(antena);
