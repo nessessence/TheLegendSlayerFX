@@ -125,11 +125,11 @@ public class RenderableHolder_Logic {
 			RenderableHolder_Logic.getInstance().add(slime2);
 			RenderableHolder_Logic.getInstance().add(zombie);
 			if (System.currentTimeMillis() - start_time > 30000) {
-				Unicorn unicorn = new Unicorn(700, 200);
+				Unicorn unicorn = new Unicorn(600, 400);
 				RenderableHolder_Logic.getInstance().add(unicorn);
 			}
 			if (System.currentTimeMillis() - start_time > 60000) {
-				God god = new God(250, 70);
+				God god = new God(550, 400);
 				RenderableHolder_Logic.getInstance().add(god);
 			}
 			if (System.currentTimeMillis() - start_time > 120000) {

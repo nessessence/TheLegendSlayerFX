@@ -25,9 +25,9 @@ public class InitializeGame {
 		Barbewire bar3 = new Barbewire(205, 350);
 		bar3.setRadius(10);
 		Barbewire bar4 = new Barbewire(295, 515);
-		bar4.setRadius(10);
+		bar4.setRadius(7);
 		Barbewire bar5 = new Barbewire(295, 435);
-		bar5.setRadius(10);
+		bar5.setRadius(7);
 		Slime slime1 = new Slime(400, 70);
 		Slime slime2 = new Slime(300, 80);
 		RenderableHolder_Logic.getInstance().add(slime1);
@@ -60,10 +60,4 @@ public class InitializeGame {
 	}
 
 
-//	public void logicUpdate() {
-//		player.update();
-//
-////		
-////	
-//	}
 }

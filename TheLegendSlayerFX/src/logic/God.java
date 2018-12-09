@@ -8,7 +8,7 @@ public class God extends Monster {
 		setImage();
 		this.health = 10;
 		this.speed = 5;
-		this.radius = 40;
+		this.radius = 35;
 		this.score = 200;
 		this.setWidth(80);
 		this.setHeight(90);
