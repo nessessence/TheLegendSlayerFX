@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import obstruct.Castle;
 import sharedObject.IRenderable;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 
 public class Field implements IRenderable {
 
@@ -44,12 +44,12 @@ public class Field implements IRenderable {
 			for (int y = 0; y < field.length; y++) {
 
 				if (field[y][x] == 1) {
-					Image img = new WritableImage(RenderableHolder.deadTreeSprite.getPixelReader(),
+					Image img = new WritableImage(RenderableHolder_Logic.deadTreeSprite.getPixelReader(),
 							getTileIndex(x, y) * 50, 0, 50, 50);
 					gc.drawImage(img, x * 50, y * 50);
 
 				} else if (field[y][x] == 2) {
-					Image img = new WritableImage(RenderableHolder.tree1Sprite.getPixelReader(),
+					Image img = new WritableImage(RenderableHolder_Logic.tree1Sprite.getPixelReader(),
 							getTileIndex(x, y) * 50, 0, 50, 50);
 					gc.drawImage(img, x * 50, y * 50);
 				}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import obstruct.*;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 
 public class InitializeGame {
 	private List<Entity> gameObjectContainer;
@@ -15,7 +15,7 @@ public class InitializeGame {
 		System.out.println("new field");
 		Field field = new Field();
 		System.out.println("new field completed");
-		RenderableHolder.getInstance().add(field);
+		RenderableHolder_Logic.getInstance().add(field);
 		player = new Player(200, 500);
 		Antena antena = new Antena(50, 100);
 		Pond pond = new Pond(450, 200);
@@ -26,46 +26,45 @@ public class InitializeGame {
 		Barbewire bar1 = new Barbewire(25, 350);
 		Barbewire bar2 = new Barbewire(115, 350);
 		Barbewire bar3 = new Barbewire(205, 350);
-		bar3.setRadius(20);
+		bar3.setRadius(10);
 		Barbewire bar4 = new Barbewire(295, 515);
-		bar4.setRadius(15);
+		bar4.setRadius(10);
 		Barbewire bar5 = new Barbewire(295, 435);
-		bar5.setRadius(15);
+		bar5.setRadius(10);
 		Slime slime1 = new Slime(400, 70);
 		Slime slime2 = new Slime(300, 80);
-		Zombie zombie = new Zombie(550, 90);
-		RenderableHolder.getInstance().add(slime1);
-		RenderableHolder.getInstance().add(slime2);
+		RenderableHolder_Logic.getInstance().add(slime1);
+		RenderableHolder_Logic.getInstance().add(slime2);
 
-		RenderableHolder.getObstacles().add(antena);
-		RenderableHolder.getInstance().add(antena);
-		RenderableHolder.getObstacles().add(pond);
-		RenderableHolder.getInstance().add(pond);
-		RenderableHolder.getObstacles().add(cannon1);
-		RenderableHolder.getInstance().add(cannon1);
-		RenderableHolder.getObstacles().add(cannon2);
-		RenderableHolder.getInstance().add(cannon2);
-		RenderableHolder.getObstacles().add(castle);
-		RenderableHolder.getInstance().add(castle);
-		RenderableHolder.getObstacles().add(ecastle);
-		RenderableHolder.getInstance().add(ecastle);
-		RenderableHolder.getObstacles().add(bar1);
-		RenderableHolder.getInstance().add(bar1);
-		RenderableHolder.getObstacles().add(bar2);
-		RenderableHolder.getInstance().add(bar2);
-		RenderableHolder.getObstacles().add(bar3);
-		RenderableHolder.getInstance().add(bar3);
-		RenderableHolder.getObstacles().add(bar4);
-		RenderableHolder.getInstance().add(bar4);
-		RenderableHolder.getObstacles().add(bar5);
-		RenderableHolder.getInstance().add(bar5);
+		RenderableHolder_Logic.getObstacles().add(antena);
+		RenderableHolder_Logic.getInstance().add(antena);
+		RenderableHolder_Logic.getObstacles().add(pond);
+		RenderableHolder_Logic.getInstance().add(pond);
+		RenderableHolder_Logic.getObstacles().add(cannon1);
+		RenderableHolder_Logic.getInstance().add(cannon1);
+		RenderableHolder_Logic.getObstacles().add(cannon2);
+		RenderableHolder_Logic.getInstance().add(cannon2);
+		RenderableHolder_Logic.getObstacles().add(castle);
+		RenderableHolder_Logic.getInstance().add(castle);
+		RenderableHolder_Logic.getObstacles().add(ecastle);
+		RenderableHolder_Logic.getInstance().add(ecastle);
+		RenderableHolder_Logic.getObstacles().add(bar1);
+		RenderableHolder_Logic.getInstance().add(bar1);
+		RenderableHolder_Logic.getObstacles().add(bar2);
+		RenderableHolder_Logic.getInstance().add(bar2);
+		RenderableHolder_Logic.getObstacles().add(bar3);
+		RenderableHolder_Logic.getInstance().add(bar3);
+		RenderableHolder_Logic.getObstacles().add(bar4);
+		RenderableHolder_Logic.getInstance().add(bar4);
+		RenderableHolder_Logic.getObstacles().add(bar5);
+		RenderableHolder_Logic.getInstance().add(bar5);
 		addNewObject(player);
 
 	}
 
 	protected void addNewObject(Entity entity) {
 		gameObjectContainer.add(entity);
-		RenderableHolder.getInstance().add(entity);
+		RenderableHolder_Logic.getInstance().add(entity);
 	}
 
 	public void logicUpdate() {

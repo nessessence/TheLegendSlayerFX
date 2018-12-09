@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import obstruct.Metal;
 import obstruct.Obstacle;
 import sharedObject.IRenderable;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 
 public abstract class Monster extends CollidableEntity implements IRenderable {
 	protected boolean canFire = false;
@@ -50,7 +50,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 			if (System.currentTimeMillis() - lastShot > 3000) {
 				Fireball bullet = new Fireball(this.x, this.y, this.getDirection());
 				lastShot = System.currentTimeMillis();
-				RenderableHolder.getInstance().add(bullet);
+				RenderableHolder_Logic.getInstance().add(bullet);
 			}
 
 		}
@@ -95,7 +95,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 	}
 
 	public boolean canGo(MoveCalculate future) {
-		for (Obstacle obstacle : RenderableHolder.getObstacles()) {
+		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future))
 				if (CollisionUtility.checkCollisionsObstacle(obstacle, this))
 					return true;
@@ -173,7 +173,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 
 	public void die() {
 		this.destroyed = true;
-		Player player = RenderableHolder.getPlayer();
+		Player player = RenderableHolder_Logic.getPlayer();
 		player.setScore(player.getScore() + this.getScore());
 
 	}

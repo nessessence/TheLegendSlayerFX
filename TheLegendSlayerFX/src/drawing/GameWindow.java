@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import logic.Field;
 import logic.InitializeGame;
 import logic.Player;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 
 public class GameWindow extends Canvas{
 	private Stage primaryStage;
@@ -44,7 +44,7 @@ public class GameWindow extends Canvas{
             public void handle(long now) {
                 logic.logicUpdate();
                 gameScreen.paintComponent();
-                RenderableHolder.getInstance().update();
+                RenderableHolder_Logic.getInstance().update();
                 InputUtility.updateInputState();
                 isGameEnd();
             }
@@ -52,10 +52,10 @@ public class GameWindow extends Canvas{
         animation.start(); 
     }
     public void isGameEnd() {
-        if(RenderableHolder.getPlayer().getLife() <= 0 ) {
-            RenderableHolder.getInstance().clearList();
+        if(RenderableHolder_Logic.getPlayer().getLife() <= 0 ) {
+            RenderableHolder_Logic.getInstance().clearList();
             animation.stop();
-            GameisOver gameOver = new GameisOver(RenderableHolder.getPlayer().getScore());
+            GameisOver gameOver = new GameisOver(RenderableHolder_Logic.getPlayer().getScore());
             try {
                 gameOver.start(primaryStage);
             } catch(Exception e) {

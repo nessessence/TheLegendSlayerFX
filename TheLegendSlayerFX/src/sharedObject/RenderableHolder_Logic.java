@@ -21,8 +21,8 @@ import logic.CollisionUtility;
 import logic.Dragon;
 import logic.Entity;
 
-public class RenderableHolder {
-	private static final RenderableHolder instance = new RenderableHolder();
+public class RenderableHolder_Logic {
+	private static final RenderableHolder_Logic instance = new RenderableHolder_Logic();
 	private static ArrayList<Obstacle> obstacles;
 	public static long time = 0;
 	public static long start_time;
@@ -48,18 +48,18 @@ public class RenderableHolder {
 	}
 
 	public static void setObstacles(ArrayList<Obstacle> obstacles) {
-		RenderableHolder.obstacles = obstacles;
+		RenderableHolder_Logic.obstacles = obstacles;
 	}
 
 	public static Field getField() {
-		return RenderableHolder.field;
+		return RenderableHolder_Logic.field;
 	}
 
 	public static void setField(Field field) {
-		RenderableHolder.field = field;
+		RenderableHolder_Logic.field = field;
 	}
 
-	public RenderableHolder() {
+	public RenderableHolder_Logic() {
 		entities = new ArrayList<IRenderable>();
 		comparator = (IRenderable o1, IRenderable o2) -> {
 			if (o1.getZ() > o2.getZ())
@@ -72,7 +72,7 @@ public class RenderableHolder {
 		obstacles = new ArrayList<Obstacle>();
 	}
 
-	public static RenderableHolder getInstance() {
+	public static RenderableHolder_Logic getInstance() {
 		return instance;
 	}
 
@@ -81,7 +81,7 @@ public class RenderableHolder {
 	}
 
 	public static void setPlayer(Player player) {
-		RenderableHolder.player = player;
+		RenderableHolder_Logic.player = player;
 	}
 
 	public static void loadResource() {
@@ -109,21 +109,21 @@ public class RenderableHolder {
 			Slime slime1 = new Slime(400, 70);
 			Slime slime2 = new Slime(300, 80);
 			Zombie zombie = new Zombie(550, 90);
-			RenderableHolder.getInstance().add(slime1);
-			RenderableHolder.getInstance().add(slime2);
-			RenderableHolder.getInstance().add(zombie);
+			RenderableHolder_Logic.getInstance().add(slime1);
+			RenderableHolder_Logic.getInstance().add(slime2);
+			RenderableHolder_Logic.getInstance().add(zombie);
 			if (System.currentTimeMillis() - start_time > 30000) {
 				Unicorn unicorn = new Unicorn(700, 200);
-				RenderableHolder.getInstance().add(unicorn);
+				RenderableHolder_Logic.getInstance().add(unicorn);
 			}
 			if (System.currentTimeMillis() - start_time > 60000) {
 				God god = new God(250, 70);
-				RenderableHolder.getInstance().add(god);
+				RenderableHolder_Logic.getInstance().add(god);
 			}
 			if (System.currentTimeMillis() - start_time > 120000) {
 
 				Dragon dragon = new Dragon(400, 70);
-				RenderableHolder.getInstance().add(dragon);
+				RenderableHolder_Logic.getInstance().add(dragon);
 			}
 
 		}

@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="sharedObject.RenderableHolder" project="TheLegendSlayer" 
-    file="/TheLegendSlayer/src/sharedObject/RenderableHolder.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="sharedObject.RenderableHolder_Logic" project="TheLegendSlayer" 
+    file="/TheLegendSlayer/src/sharedObject/RenderableHolder_Logic.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="621" width="221" x="673" y="-118"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import input.InputUtility;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -59,7 +59,7 @@ public class Player extends CollidableEntity {
 
 		setPlayer();
 		this.direction = 2;
-		RenderableHolder.setPlayer(this);
+		RenderableHolder_Logic.setPlayer(this);
 	}
 
 	public void gainLife() {
@@ -106,7 +106,7 @@ public class Player extends CollidableEntity {
 
 	public void goUp() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed(), this);
-		RenderableHolder.setPlayer(this);
+		RenderableHolder_Logic.setPlayer(this);
 		if (canGo(future))
 			return;
 		this.setY(this.getY() - this.getSpeed());
@@ -117,7 +117,7 @@ public class Player extends CollidableEntity {
 
 	public void goDown() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed(), this);
-		RenderableHolder.setPlayer(this);
+		RenderableHolder_Logic.setPlayer(this);
 		if (canGo(future))
 			return;
 		this.setY(this.getY() + this.getSpeed());
@@ -128,7 +128,7 @@ public class Player extends CollidableEntity {
 
 	public void goRight() {
 		MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.getY(), this);
-		RenderableHolder.setPlayer(this);
+		RenderableHolder_Logic.setPlayer(this);
 		if (canGo(future))
 			return;
 		this.setX(this.getX() + this.getSpeed());
@@ -139,7 +139,7 @@ public class Player extends CollidableEntity {
 
 	public void goLeft() {
 		MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.getY(), this);
-		RenderableHolder.setPlayer(this);
+		RenderableHolder_Logic.setPlayer(this);
 		if (canGo(future))
 			return;
 		this.setX(this.getX() - this.getSpeed());
@@ -179,9 +179,9 @@ public class Player extends CollidableEntity {
 	}
 
 	public boolean canGo(MoveCalculate future) {
-		for (Obstacle obstacle : RenderableHolder.getObstacles()) {
+		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future))
-				if (CollisionUtility.checkCollisionsObstacle(obstacle, (CollidableEntity) RenderableHolder.getPlayer()))
+				if (CollisionUtility.checkCollisionsObstacle(obstacle, (CollidableEntity) RenderableHolder_Logic.getPlayer()))
 					return true;
 		}
 		return false;
@@ -208,7 +208,7 @@ public class Player extends CollidableEntity {
 				&& (System.currentTimeMillis() - lastShot) > 200 / machinegunLevel) {
 			Bullet bullet = new Bullet(this.x, this.y, this.getDirection());
 			lastShot = System.currentTimeMillis();
-			RenderableHolder.getInstance().add(bullet);
+			RenderableHolder_Logic.getInstance().add(bullet);
 
 			move_count += 1;
 		}
@@ -219,11 +219,11 @@ public class Player extends CollidableEntity {
 			God god = new God(200, 200);
 			Dragon dragon = new Dragon(500, 500);
 
-			RenderableHolder.getInstance().add(zombie);
-			RenderableHolder.getInstance().add(unicorn);
-			RenderableHolder.getInstance().add(slime);
-			RenderableHolder.getInstance().add(god);
-			RenderableHolder.getInstance().add(dragon);
+			RenderableHolder_Logic.getInstance().add(zombie);
+			RenderableHolder_Logic.getInstance().add(unicorn);
+			RenderableHolder_Logic.getInstance().add(slime);
+			RenderableHolder_Logic.getInstance().add(god);
+			RenderableHolder_Logic.getInstance().add(dragon);
 		}
 
 		if (InputUtility.isLeftClickTriggered()) {
@@ -267,9 +267,9 @@ public class Player extends CollidableEntity {
 
 	public void isHit() {
 		scream.play();
-		RenderableHolder.getPlayer().life--;
-		RenderableHolder.getPlayer().setX(200);
-		RenderableHolder.getPlayer().setY(500);
+		RenderableHolder_Logic.getPlayer().life--;
+		RenderableHolder_Logic.getPlayer().setX(200);
+		RenderableHolder_Logic.getPlayer().setY(500);
 
 	}
 }

@@ -1,7 +1,7 @@
 package logic;
 
 import sharedObject.IRenderable;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
@@ -63,7 +63,7 @@ public class Bullet extends CollidableEntity implements IRenderable {
 	}
 
 	public boolean canGo(MoveCalculate future) {
-		for (Obstacle obstacle : RenderableHolder.getObstacles()) {
+		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future) && obstacle instanceof Metal)
 				if (CollisionUtility.checkCollisionsMetal(obstacle, this))
 					return true;

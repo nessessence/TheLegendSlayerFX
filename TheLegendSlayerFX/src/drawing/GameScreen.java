@@ -9,7 +9,7 @@ import javafx.scene.text.Font;
 import logic.Field;
 import logic.Player;
 import sharedObject.IRenderable;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 
@@ -68,14 +68,14 @@ public class GameScreen extends Canvas {
 		GraphicsContext gc = this.getGraphicsContext2D();
 		gc.setFill(Color.WHITE);
 
-		for (IRenderable entity : RenderableHolder.getInstance().getEntities()) {
+		for (IRenderable entity : RenderableHolder_Logic.getInstance().getEntities()) {
 			if (!entity.isDestroyed()) {
 				entity.draw(gc);
 			}
 		}
 		gc.setFont(SPACE_FONT);
-		gc.fillText("score:" + Integer.toString(RenderableHolder.getPlayer().getScore()), 30, 15);
-		gc.fillText("life:" + Integer.toString(RenderableHolder.getPlayer().getLife()), 30, 33);
+		gc.fillText("score:" + Integer.toString(RenderableHolder_Logic.getPlayer().getScore()), 30, 15);
+		gc.fillText("life:" + Integer.toString(RenderableHolder_Logic.getPlayer().getLife()), 30, 33);
 
 	}
 

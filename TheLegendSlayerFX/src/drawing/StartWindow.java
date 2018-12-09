@@ -14,7 +14,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import sharedObject.RenderableHolder;
+import sharedObject.RenderableHolder_Logic;
 
 public class StartWindow {
 	private final Font CHAT_FONT = Font.loadFont(ClassLoader.getSystemResourceAsStream("Digital_tech.otf"), 40);
@@ -114,8 +114,8 @@ public class StartWindow {
 					if (numberselected == 0) {
 						GameWindow game = new GameWindow(primaryStage);
 						game.drawGameWindow();
-						RenderableHolder.time = System.currentTimeMillis();
-						RenderableHolder.start_time = System.currentTimeMillis();
+						RenderableHolder_Logic.time = System.currentTimeMillis();
+						RenderableHolder_Logic.start_time = System.currentTimeMillis();
 						spaceanimation.stop();
 
 					}
