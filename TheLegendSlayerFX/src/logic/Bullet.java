@@ -62,7 +62,7 @@ public class Bullet extends CollidableEntity implements IRenderable {
 		gc.drawImage(bulletpic, this.x, this.y);
 	}
 
-	public boolean canGo(MoveCalculate future) {
+	private boolean canGo(MoveCalculate future) {
 		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future) && obstacle instanceof Metal)
 				if (CollisionUtility.checkCollisionsMetal(obstacle, this))

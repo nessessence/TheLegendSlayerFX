@@ -163,7 +163,7 @@ public class Player extends CollidableEntity {
 		return this.y;
 	}
 
-	public boolean canGo(MoveCalculate future) {
+	private boolean canGo(MoveCalculate future) {
 		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future))
 				if (CollisionUtility.checkCollisionsObstacle(obstacle, (CollidableEntity) RenderableHolder_Logic.getPlayer()))

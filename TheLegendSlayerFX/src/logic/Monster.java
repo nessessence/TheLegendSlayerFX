@@ -21,6 +21,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 	private int direction = 2;
 	protected int health;
 	protected int speed;
+	private int dirTimer = 0, dirTimeInterval = 30;
 
 	public int getDirection() {
 		return direction;
@@ -31,7 +32,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 	}
 
 
-	private int dirTimer = 0, dirTimeInterval = 30;
+	
 
 	public Monster(double x, double y) {
 		this.setX(x);
@@ -95,7 +96,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 		return this.score;
 	}
 
-	public boolean canGo(MoveCalculate future) {
+	private boolean canGo(MoveCalculate future) {
 		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future))
 				if (CollisionUtility.checkCollisionsObstacle(obstacle, this))
