@@ -6,15 +6,15 @@ public class Pond extends Obstacle {
 	
 	public Pond(double x, double y){
 		super(x,y);
-		setImage(new Image("pond.png"));
+		setImage("pond.png");
 		this.setWidth(210);
 		this.setHeight(200);
 		this.radius = 100;
 		this.setZ(-888) ;
 	}
 	@Override
-	public void setImage(Image img){
-		this.pic = img;
+	public void setImage(String img){
+		this.pic  = new Image(ClassLoader.getSystemResource(img).toString());
 	}
 	
 

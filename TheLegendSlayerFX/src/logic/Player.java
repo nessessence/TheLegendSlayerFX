@@ -36,7 +36,7 @@ public class Player extends CollidableEntity {
     @Override
     public void draw(GraphicsContext gc) {
         gc.drawImage(startpic, this.getX(), this.getY());
-        System.out.println("x : "+this.getX() + " y : "+this.getY());
+
     }
     public Player(double x, double y) {
         //playSound();

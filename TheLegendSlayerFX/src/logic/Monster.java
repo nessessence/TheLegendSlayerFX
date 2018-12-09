@@ -92,10 +92,13 @@ public abstract class Monster extends CollidableEntity implements IRenderable{
     }
     public boolean canGo(MoveCalculate future) {
     	for(Obstacle obstacle : RenderableHolder.getObstacles()) {
-    		if(obstacle.collideWith(future) && obstacle instanceof Metal)
-    			if(CollisionUtility.checkCollisionsObstacle(obstacle , this)) return true ;
+    		if(obstacle.collideWith(future) )
+    			if(CollisionUtility.checkCollisionsObstacle(obstacle , this)) 
+    				System.out.println(obstacle.getClass()) ;
+    				return false;
+    			
     	}
-    	return false;
+    	return true;
     }
     public void goUp() {
     	MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed());

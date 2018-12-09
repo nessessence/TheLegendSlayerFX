@@ -5,14 +5,14 @@ import javafx.scene.image.Image;
 
 public class Metal extends Obstacle {
 	
-	public Metal(double x, double y,Image img){
+	public Metal(double x, double y,String img){
 		super(x,y);
 		setImage(img);
 		
 	}
 	@Override
-	public void setImage(Image img){
-		this.pic = img;
+	public void setImage(String img){
+		this.pic = new Image(ClassLoader.getSystemResource(img).toString());
 	}
 	
 	

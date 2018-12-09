@@ -5,11 +5,19 @@ import obstruct.*;
  
 public class CollisionUtility {
     public static void checkCollisionsBullet(Bullet bullet, Entity other){ 
-        if(other instanceof Monster){
+        if(other instanceof Monster && !(bullet instanceof Fireball)){
             ((Monster)other).takeDamage();
             bullet.destroyed = true;
         }
     }
+    public static void checkCollisionsFireBall(Fireball fireball, Player player){ 
+        if(player instanceof Player ){
+            player.isHit();
+            fireball.destroyed = true;
+        }
+    }
+    
+    
 //  public static boolean checkCollisionMonster(Monster monster, Entity other){
 //      if(other instanceof Metal || other instanceof Pond){
 //          return true;

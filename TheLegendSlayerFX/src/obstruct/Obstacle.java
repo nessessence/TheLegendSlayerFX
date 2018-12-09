@@ -11,7 +11,7 @@ public abstract class Obstacle extends CollidableEntity{
 		this.setY(y);
 		
 	}
-	public abstract void setImage(Image img);
+	public abstract void setImage(String img );
 	
 	@Override 
 	public void draw(GraphicsContext gc){

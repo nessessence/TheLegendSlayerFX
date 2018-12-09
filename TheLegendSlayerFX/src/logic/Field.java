@@ -52,7 +52,7 @@ public class Field implements IRenderable {
 //	}
 	@Override
     public void draw(GraphicsContext gc) {
-        Image bgImg = new Image("bgBrick.png");
+        Image bgImg = new Image(ClassLoader.getSystemResource("bgBrick.png").toString()) ;
         gc.drawImage(bgImg, 0, 0);
 		for (int x = 0; x < field[0].length; x++) {
             for (int y = 0; y < field.length; y++) {

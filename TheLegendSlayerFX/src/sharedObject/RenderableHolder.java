@@ -8,6 +8,7 @@ import logic.Bullet;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import logic.Field;
+import logic.Fireball;
 import logic.God;
 import logic.Monster;
 import logic.Player;
@@ -111,23 +112,23 @@ public class RenderableHolder {
             GenRate += 10 ;
             System.out.println("Monster generated !!,GenRate:"+GenRate);
             time = System.currentTimeMillis() ;
-            Slime slime1 = new Slime(550, 70);
-            Slime slime2 = new Slime(550, 80);
+            Slime slime1 = new Slime(400, 70);
+            Slime slime2 = new Slime(300, 80);
             Zombie zombie = new Zombie(550, 90);
             RenderableHolder.getInstance().add(slime1);
             RenderableHolder.getInstance().add(slime2);
             RenderableHolder.getInstance().add(zombie);
             if(System.currentTimeMillis() - start_time > 30000) {
-                Unicorn unicorn = new Unicorn(550, 70);
+                Unicorn unicorn = new Unicorn(700, 200);
                 RenderableHolder.getInstance().add(unicorn);
             }
             if(System.currentTimeMillis() - start_time >60000) {
-                God god = new God(550, 70) ;
+                God god = new God(250, 70) ;
                 RenderableHolder.getInstance().add(god);
             }
             if(System.currentTimeMillis() - start_time >120000) {
                 // dragon
-                Dragon dragon = new Dragon(550, 70) ;
+                Dragon dragon = new Dragon(400, 70) ;
                 RenderableHolder.getInstance().add(dragon);
             }
 //            
@@ -147,12 +148,17 @@ public class RenderableHolder {
                 CollidableEntity other = (CollidableEntity) entities.get(i) ;
                 if( player.collideWith( other )) CollisionUtility.checkCollisionsPlayer(player , other) ;
             
-            if( entities.get(i) instanceof Bullet){
+            if( entities.get(i) instanceof Bullet && !(entities.get(i) instanceof Fireball)){
                 Bullet bullet = (Bullet)entities.get(i);
                 for(int j = 1 ; j < entities.size() ; j++){
                     CollidableEntity other1 = (CollidableEntity)entities.get(j);
                     if(bullet.collideWith(other1)) CollisionUtility.checkCollisionsBullet(bullet, other1);
                 }
+            }
+            else if ( entities.get(i) instanceof Fireball) {
+            	Fireball fireball = (Fireball)entities.get(i) ;
+            	if(player.collideWith(fireball)) CollisionUtility.checkCollisionsFireBall( fireball,  player); 
+
             }
         }
         //System.out.println(entities.get(0).getClass()) ; // field
