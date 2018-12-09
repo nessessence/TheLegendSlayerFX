@@ -7,16 +7,13 @@ import obstruct.*;
 import sharedObject.RenderableHolder_Logic;
 
 public class InitializeGame {
-	private List<Entity> gameObjectContainer;
-	private Player player;
 
 	public InitializeGame() {
-		this.gameObjectContainer = new ArrayList<Entity>();
 		System.out.println("new field");
 		Field field = new Field();
 		System.out.println("new field completed");
 		RenderableHolder_Logic.getInstance().add(field);
-		player = new Player(200, 500);
+		Player player = new Player(200, 500);
 		Antena antena = new Antena(50, 100);
 		Pond pond = new Pond(450, 200);
 		Cannon cannon1 = new Cannon(150, 0);
@@ -58,19 +55,15 @@ public class InitializeGame {
 		RenderableHolder_Logic.getInstance().add(bar4);
 		RenderableHolder_Logic.getObstacles().add(bar5);
 		RenderableHolder_Logic.getInstance().add(bar5);
-		addNewObject(player);
+		RenderableHolder_Logic.getInstance().add(player);
 
 	}
 
-	protected void addNewObject(Entity entity) {
-		gameObjectContainer.add(entity);
-		RenderableHolder_Logic.getInstance().add(entity);
-	}
 
-	public void logicUpdate() {
-		player.update();
-
-//		
-//	
-	}
+//	public void logicUpdate() {
+//		player.update();
+//
+////		
+////	
+//	}
 }

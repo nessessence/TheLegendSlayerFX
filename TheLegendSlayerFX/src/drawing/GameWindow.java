@@ -20,7 +20,7 @@ public class GameWindow extends Canvas{
 	private Stage primaryStage;
 	private GraphicsContext gc;
 	private Scene scene;
-	private InitializeGame logic;
+	private InitializeGame initialize;
 	private GameScreen gameScreen;
 	private AnimationTimer animation;
 
@@ -34,7 +34,7 @@ public class GameWindow extends Canvas{
 		scene = new Scene(s);
 		this.primaryStage.setScene(scene);
 		this.primaryStage.setTitle("The Legend Slayer");
-		logic = new InitializeGame();
+		initialize = new InitializeGame();
 		gameScreen = new GameScreen(800, 600);
 		s.getChildren().add(gameScreen);
 		gameScreen.requestFocus();
@@ -42,7 +42,6 @@ public class GameWindow extends Canvas{
 	public void drawGameWindow() {     
         this.animation = new AnimationTimer() {
             public void handle(long now) {
-                logic.logicUpdate();
                 gameScreen.paintComponent();
                 RenderableHolder_Logic.getInstance().update();
                 InputUtility.updateInputState();
