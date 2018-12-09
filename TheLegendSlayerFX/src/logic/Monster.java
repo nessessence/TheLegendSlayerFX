@@ -19,6 +19,8 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 	protected Image down;
 	protected Image startpic;
 	private int direction = 2;
+	protected int health;
+	protected int speed;
 
 	public int getDirection() {
 		return direction;
@@ -28,8 +30,7 @@ public abstract class Monster extends CollidableEntity implements IRenderable {
 		this.direction = direction;
 	}
 
-	protected int health;
-	protected int speed;
+
 	private int dirTimer = 0, dirTimeInterval = 30;
 
 	public Monster(double x, double y) {
