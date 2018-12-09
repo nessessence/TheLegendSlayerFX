@@ -64,29 +64,31 @@ public class GameWindow extends Canvas{
 		gameScreen = new GameScreen(800, 600);
 		s.getChildren().add(gameScreen);
 		gameScreen.requestFocus();
-//		requestFocus();
+		//requestFocus();
 	}
-	public void drawGameWindow() {		
-		this.animation = new AnimationTimer() {
-			public void handle(long now) {
-				logic.logicUpdate();
-				gameScreen.paintComponent();
-				RenderableHolder.getInstance().update();
-				InputUtility.updateInputState();
-				isGameEnd();
-			}
-		};
-		animation.start();	
-	}
-	public void isGameEnd() {
-		if(RenderableHolder.getPlayer().getLife() <= 0 ) {
-			this.lastScore = RenderableHolder.getPlayer().getScore();
-			RenderableHolder.getInstance().clearList(); 
-			animation.stop();
-			GameOver.startAnimation(gc);
-			GameOver.setFinished(false);
-		}
-	}
-	
-	
+	public void drawGameWindow() {     
+        this.animation = new AnimationTimer() {
+            public void handle(long now) {
+                logic.logicUpdate();
+                gameScreen.paintComponent();
+                RenderableHolder.getInstance().update();
+                InputUtility.updateInputState();
+                isGameEnd();
+            }
+        };
+        animation.start(); 
+    }
+    public void isGameEnd() {
+        if(RenderableHolder.getPlayer().getLife() <= 0 ) {
+            RenderableHolder.getInstance().clearList();
+            animation.stop();
+            GameisOver gameOver = new GameisOver(RenderableHolder.getPlayer().getScore());
+            try {
+                gameOver.start(primaryStage);
+            } catch(Exception e) {
+                System.out.println("Have some errors at isGameEnd()");
+            }
+           
+        }
+    }
 }

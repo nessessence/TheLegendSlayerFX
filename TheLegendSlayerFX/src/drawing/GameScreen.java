@@ -15,7 +15,6 @@ import javafx.scene.input.MouseButton;
 
 public class GameScreen extends Canvas {
 	private final Font SPACE_FONT = Font.loadFont(ClassLoader.getSystemResourceAsStream("CourierNew.ttf"), 15);
-	private static boolean isDrawMap = false ;
 	public GameScreen(double width, double height) {
 		super(width, height);
 		this.setVisible(true);

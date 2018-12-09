@@ -10,7 +10,7 @@ public class Slime extends Monster {
 		this.setHeight(32);
 		this.health = 1;
 		this.speed = 1;
-		this.radius = 15 ;
+		this.radius = 20 ;
 		this.score = 10;
 		
 	}

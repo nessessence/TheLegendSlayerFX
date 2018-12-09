@@ -14,10 +14,11 @@ public class GameLogic {
 
 	public GameLogic(){
 		this.gameObjectContainer = new ArrayList<Entity>();
-	
+		System.out.println("new field");
 		Field field = new Field();
+		System.out.println("new field completed");
 		RenderableHolder.getInstance().add(field);
-		player = new Player(320,240);
+		player = new Player(200,500);
 		Antena antena = new Antena(50,100);
 		Pond pond = new Pond(450,200);
 		Cannon cannon1 = new Cannon(150,0);

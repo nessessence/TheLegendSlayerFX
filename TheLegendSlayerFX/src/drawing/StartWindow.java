@@ -87,7 +87,7 @@ public class StartWindow{
 		GraphicsContext gc = bg.getGraphicsContext2D();
 		gc.setFill(Color.WHITE);
 		gc.fillRect(0, 0, bg.getWidth(), bg.getHeight());
-		background = new Image("StartWindow.png");
+		background = new Image(ClassLoader.getSystemResource("StartWindow.png").toString()) ;
 		gc.drawImage(background, 0,0);
 		setRandomMusicSentence();
 		
@@ -105,7 +105,9 @@ public class StartWindow{
 				}
 				if (KeyEvent.getCode() == KeyCode.SPACE) {
 						if (numberselected==0) {
+							System.out.println("new GameWIndow");
 							GameWindow game = new GameWindow(primaryStage);
+							System.out.println("new GameWIndow cpmplete");
 							game.drawGameWindow();
 							spaceanimation.stop();
 						

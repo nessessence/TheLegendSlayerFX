@@ -31,7 +31,7 @@ public class Player extends CollidableEntity {
     public AudioClip scream =  new AudioClip(ClassLoader.getSystemResource("scream.mp3").toString());
     public String[] soundURL = {"playAd1.mp3","playAd2.mp3","playAd3.mp3","playAd4.mp3","playAd5.mp3","playAd6.mp3","playAd7.mp3","playAd8.mp3","playAd9.mp3","playAd10.mp3","playAd11.mp3","playAd12.mp3","playAd13.mp3","playAd14.mp3","playAd15.mp3","playAd16.mp3","playAd17.mp3","playAd18.mp3","playAd19.mp3"} ;
     public ArrayList<AudioClip>  sounds ;
-    public AudioClip sound = new AudioClip(ClassLoader.getSystemResource("playAD1.mp3").toString());
+    public AudioClip sound = new AudioClip(ClassLoader.getSystemResource("playAd1.mp3").toString());
     private long lastSay = System.currentTimeMillis() - 5000 ;
     @Override
     public void draw(GraphicsContext gc) {
@@ -40,7 +40,7 @@ public class Player extends CollidableEntity {
     }
     public Player(double x, double y) {
         //playSound();
-    	this.life = 10 ;
+    	this.life = 1;
     	this.setHeight(30);
     	this.setWidth(30);
     	this.z = 2 ;
@@ -55,8 +55,8 @@ public class Player extends CollidableEntity {
         //for(int i = 0 ; i < 19 ; i++ ) soundURL.add("playAd"+Integer.toString(i+1)+".mp3") ;
         setPlayer();
         this.direction = 2;
-        RenderableHolder.setPlayer(this)  
- ;//        for(int i = 0 ; i < soundURL.length ; i++) {
+        RenderableHolder.setPlayer(this)  ;
+//        for(int i = 0 ; i < soundURL.length ; i++) {
 //          sounds.add( new AudioClip(ClassLoader.getSystemResource(soundURL[i]).toString()));
 //        }
     }
@@ -235,8 +235,8 @@ public class Player extends CollidableEntity {
    public void isHit() {
 	   scream.play();
        RenderableHolder.getPlayer().life--;
-       RenderableHolder.getPlayer().setX(100);
-       RenderableHolder.getPlayer().setY(100);
+       RenderableHolder.getPlayer().setX(200);
+       RenderableHolder.getPlayer().setY(500);
 
        
        
