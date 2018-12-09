@@ -66,9 +66,9 @@ public class Bullet extends CollidableEntity implements IRenderable {
 		for (Obstacle obstacle : RenderableHolder_Logic.getObstacles()) {
 			if (obstacle.collideWith(future) && obstacle instanceof Metal)
 				if (CollisionUtility.checkCollisionsMetal(obstacle, this))
-					return true;
+					return false;
 		}
-		return false;
+		return true;
 	}
 
 	public int getSpeed() {
@@ -77,7 +77,7 @@ public class Bullet extends CollidableEntity implements IRenderable {
 
 	public void goUp() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setY(this.getY() - this.getSpeed());
 
@@ -87,7 +87,7 @@ public class Bullet extends CollidableEntity implements IRenderable {
 
 	public void goDown() {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setY(this.getY() + this.getSpeed());
 
@@ -97,7 +97,7 @@ public class Bullet extends CollidableEntity implements IRenderable {
 
 	public void goRight() {
 		MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.getY(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setX(this.getX() + this.getSpeed());
 		bulletpic = right;
@@ -105,7 +105,7 @@ public class Bullet extends CollidableEntity implements IRenderable {
 
 	public void goLeft() {
 		MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.getY(), this);
-		if (canGo(future))
+		if (!canGo(future))
 			return;
 		this.setX(this.getX() - this.getSpeed());
 
