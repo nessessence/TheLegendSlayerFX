@@ -1,5 +1,8 @@
 package logic;
 
+
+
+import exception.LimitedMapException;
 import sharedObject.IRenderable;
 
 public abstract class Entity implements IRenderable {
@@ -41,7 +44,11 @@ public abstract class Entity implements IRenderable {
 		return x;
 	}
 
-	public void setX(double x) {
+	public void setX(double x) throws LimitedMapException{
+		if(x > 800 || x < 0) {
+			this.destroyed = true;
+			throw new  LimitedMapException();
+		}
 		this.x = x;
 	}
 
@@ -49,7 +56,11 @@ public abstract class Entity implements IRenderable {
 		return y;
 	}
 
-	public void setY(double y) {
+	public void setY(double y) throws LimitedMapException{
+		if(y > 600 || y < 0) {
+			this.destroyed = true;
+			throw new LimitedMapException();
+		}
 		this.y = y;
 	}
 

@@ -2,6 +2,7 @@ package logic;
 
 import sharedObject.IRenderable;
 import sharedObject.RenderableHolder_Logic;
+import exception.LimitedMapException;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
@@ -19,9 +20,13 @@ public class Bullet extends CollidableEntity implements IRenderable {
 	public AudioClip soundshot = new AudioClip(ClassLoader.getSystemResource("AK47GunShot.mp3").toString());
 	private int speed = 10;
 
-	public Bullet(double x, double y, int direction) {
-		this.x = x;
-		this.y = y;
+	public Bullet(double x, double y, int direction)  {
+		try {	
+			this.setX(x);
+			this.setY(y);
+		} catch(LimitedMapException e) {
+			e.printStackTrace();
+		}
 		this.direction = direction;
 		setBulletPic(direction);
 		playSound();
@@ -79,7 +84,11 @@ public class Bullet extends CollidableEntity implements IRenderable {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() - this.getSpeed(), this);
 		if (!canGo(future))
 			return;
-		this.setY(this.getY() - this.getSpeed());
+		try {
+			this.setY(this.getY() - this.getSpeed());
+		} catch (LimitedMapException e){
+			e.printStackTrace();
+		}
 
 		bulletpic = top;
 
@@ -89,7 +98,11 @@ public class Bullet extends CollidableEntity implements IRenderable {
 		MoveCalculate future = new MoveCalculate(this.getX(), this.getY() + this.getSpeed(), this);
 		if (!canGo(future))
 			return;
-		this.setY(this.getY() + this.getSpeed());
+		try {
+			this.setY(this.getY() + this.getSpeed());
+		} catch( LimitedMapException e) {
+			e.printStackTrace();
+		}
 
 		bulletpic = down;
 
@@ -99,7 +112,11 @@ public class Bullet extends CollidableEntity implements IRenderable {
 		MoveCalculate future = new MoveCalculate(this.getX() + this.getSpeed(), this.getY(), this);
 		if (!canGo(future))
 			return;
-		this.setX(this.getX() + this.getSpeed());
+		try {
+			this.setX(this.getX() + this.getSpeed());
+		} catch (LimitedMapException e) {
+			e.printStackTrace();
+		}
 		bulletpic = right;
 	}
 
@@ -107,7 +124,11 @@ public class Bullet extends CollidableEntity implements IRenderable {
 		MoveCalculate future = new MoveCalculate(this.getX() - this.getSpeed(), this.getY(), this);
 		if (!canGo(future))
 			return;
-		this.setX(this.getX() - this.getSpeed());
+		try {
+			this.setX(this.getX() - this.getSpeed());
+		} catch(LimitedMapException e) {
+			e.printStackTrace();
+		}
 
 		bulletpic = left;
 
